@@ -12,24 +12,49 @@
 </head>
 <body>
     <header class="absolute top-0 left-0 text-white py-4 font-[Montserrat] h-[7rem] flex items-center z-[999] w-[100%]">
-        <div class="px-24 flex justify-between items-center w-[100%]">
+        <div class="px-4 sm:px-8 md:px-16 lg:px-24 flex justify-between items-center w-[100%]">
           <!-- Logo and navigation -->
           <div class="flex items-center">
             <!-- Replace with your logo image -->
             <a href="#"><img src="./img/logo.png" alt="Logo" class="h-[3rem] mr-8"></a>
-            <nav class="navMenu">
-              <ul class="flex space-x-4 gap-4">
-                <li><a href="#" class="menuPoint text-lg flex items-center gap-2 active">Главная <span class="chevron"></a></li>
-                <li><a href="#" class="menuPoint text-lg flex items-center gap-2">О компании </span></a></li>
-                <li><a href="#" class="menuPoint text-lg flex items-center gap-2">Продукция <span class="chevron"></span></a></li>
-                <li><a href="#" class="menuPoint text-lg flex items-center gap-2">Новости</a></li>
-                <li><a href="#" class="menuPoint text-lg flex items-center gap-2">Дистрибьюторы</a></li>
+            <nav class="navMenu md:block hidden">
+              <ul class="flex lg:space-x-4 lg:gap-4 gap-4 sm:gap-2 duration-150">
+                <li><a href="#" class="menuPoint sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 active">Главная <span class="chevron"></a></li>
+                <li><a href="#" class="menuPoint sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2">О компании </span></a></li>
+                <li><a href="#" class="menuPoint sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2">Продукция <span class="chevron"></span></a></li>
+                <li><a href="#" class="menuPoint sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2">Новости</a></li>
+                <li><a href="#" class="menuPoint sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2">Дистрибьюторы</a></li>
                 
               </ul>
             </nav>
           </div>
+
+          <button id="mobile-menu-button" class="md:hidden fixed z-30 top-5 right-5 p-3 rounded-full text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+            <span class="sr-only">Open main menu</span>
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+            </svg>
+          </button>
+          
+<!-- Fullscreen menu container -->
+<div class="fixed inset-0 overflow-hidden hidden" id="mobile-menu">
+  <div class="menu-circle-bg"></div>
+  <div class="menu-content fixed top-0 right-0 bottom-0 left-0 z-20 p-5">
+    <!-- Menu content -->
+    <nav class="flex items-center justify-center h-full">
+      <ul class="text-center text-white space-y-6">
+        <!-- Menu items here -->
+        <li><a href="#" class="text-2xl">Home</a></li>
+        <li><a href="#" class="text-2xl">About</a></li>
+        <li><a href="#" class="text-2xl">Services</a></li>
+        <li><a href="#" class="text-2xl">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
           <!-- Other header content like search or location -->
-          <div class="flex flex-row gap-3">
+          <div class="flex-col gap-3 xl:flex-row hidden xl:flex">
             <div class="flex flex-row gap-2">
                 <div class="w-[15%] flex items-center">
                     <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -38,8 +63,8 @@
                         
                 </div>
                 <div class="flex flex-col justify-around">
-                    <p class="text-sm text-[#53606B] leading-[20px]">Наши контакты</p>
-                    <a href="tel:8(7182)539804" class="text-lg leading-[15px]">+7 (7182) 539-804</a>
+                    <p class="text-sm text-[#53606B] leading-[20px] ">Наши контакты</p>
+                    <a href="tel:8(7182)539804" class="xl:text-lg text-sm leading-[15px]">+7 (7182) 539-804</a>
                 </div>
             </div>
             <div class="flex flex-row gap-2">
@@ -51,7 +76,7 @@
                 </div>
                 <div class="flex flex-col justify-around">
                     <p class="text-sm text-[#53606B] leading-[20px]">Наш адрес</p>
-                    <p class="text-lg leading-[15px]">г. Павлодар</p>
+                    <p class="xl:text-lg text-sm leading-[15px]">г. Павлодар</p>
                 </div>
             </div>
 
@@ -66,4 +91,5 @@
 
 
 </body>
+<script src="/js/app.js"></script>
 </html>

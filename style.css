@@ -57,3 +57,33 @@
     transform: rotate(45deg);
     background-color: #fff;
 }
+
+.menu-circle-bg {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 100%;
+    position: fixed;
+    transition: width 0.6s ease, height 0.6s ease, border-radius 0.6s ease;
+    z-index: 10;
+    transform-origin: top right;
+    width: 0;
+    height: 0;
+  }
+
+  /* This will make the circle visible and cover the entire screen */
+  .show-menu .menu-circle-bg {
+    width: 200vmax;
+    height: 200vmax;
+  }
+
+  /* Hide the menu content initially */
+  .menu-content {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Show the menu content once the circle animation is done */
+  .show-menu .menu-content {
+    opacity: 1;
+    transition-delay: 0.6s; /* This delay should match the circle animation duration */
+  }
+  
