@@ -1,0 +1,59 @@
+
+.navMenu .menuPoint {
+    color: #53606B;
+    font-weight: 400;
+    transition: 0.3s all;
+}
+
+.navMenu .menuPoint:hover {
+    color: #fff;
+}
+
+.navMenu .active {
+    color: #fff;
+    font-weight: 500;
+}
+
+.navMenu .menuPoint.active .chevron::before,
+.navMenu .menuPoint.active .chevron::after {
+    background-color: #fff;
+}
+
+.navMenu .menuPoint .chevron {
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    position: relative;
+    cursor: pointer; /* Для указания на интерактивность элемента */
+}
+
+.navMenu .menuPoint .chevron::before,
+.navMenu .menuPoint .chevron::after {
+    content: '';
+    top: .5rem;
+    position: absolute;
+    width: .65rem;
+    height: .1rem;
+    background-color: #53606B;
+    transition: all .2s ease;
+}
+
+.navMenu .menuPoint .chevron::before {
+    left: 0;
+    transform: rotate(45deg);
+}
+
+.navMenu .menuPoint .chevron::after {
+    right: 0;
+    transform: rotate(-45deg);
+}
+
+.navMenu .menuPoint:hover .chevron::before {
+    transform: rotate(-45deg);
+    background-color: #fff;
+}
+
+.navMenu .menuPoint:hover .chevron::after {
+    transform: rotate(45deg);
+    background-color: #fff;
+}
