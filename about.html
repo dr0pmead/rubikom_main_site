@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рубиком | Мясная продукция</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="font-[Montserrat] bg-[#F4F6F8]">
+    <div id="preloader"
+      class="fixed inset-0 bg-white z-[9999] flex justify-center items-center transition-opacity opacity-100 duration-1000 overflow-y-scroll">
+      <img src="img/logo.png" alt="Молком" class="w-[30%] sm:w-[25%] md:w-[20%] lg:w-[15%]">
+    </div>
+    
+<header class="desktopMenuPage fixed top-0 left-0 text-white py-4 font-[Montserrat] items-center z-[999] w-[100%] duration-150 lg:flex hidden flex-col">
+    <div class="px-4 sm:px-8 md:px-16 lg:px-24 flex justify-between items-center w-[100%]">
+      <!-- Logo and navigation -->
+      <div class="flex items-center justify-between">
+        <!-- Replace with your logo image -->
+        <a href="#"><img src="./img/logo.png" alt="Logo" class="h-[3rem] mr-8"></a>
+
+        <nav class="navMenu">
+          <ul class="flex lg:space-x-4 lg:gap-4 gap-4 sm:gap-2 duration-150">
+            <li class="menuPointChevron"><a href="/" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 ">Главная </a>
+            </li>
+            <li><a href="/about.html" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 active">О компании</a></li>
+            <li><a href="#" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2">Продукция </a></li>
+            <li><a href="#" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2">Новости</a></li>
+            <li><a href="#" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2">Дистрибьюторы</a></li>
+            
+          </ul>
+        </nav>
+
+        
+      </div>
+
+                <!-- Other header content like search or location -->
+
+                </div>
+                <div class="px-4 sm:px-8 md:px-16 lg:px-56 flex justify-start items-start w-[100%] gap-3">
+                    <a href="#animal" class="navMenuPage text-[#1c1c1e] duration-150 px-4 py-2 active">Животноводство</a>
+                    <a href="#feed" class="navMenuPage text-[#1c1c1e] duration-150 px-4 py-2">Комбикормовый завод</a>
+                    <a href="#meat" class="navMenuPage text-[#1c1c1e] duration-150 px-4 py-2">Мясоперерабатывающий комбинат</a>
+                    <a href="#crop" class="navMenuPage text-[#1c1c1e] duration-150 px-4 py-2">Полеводство</a>
+                </div>
+
+  </header>
+  <header class="mobileMenu fixed top-0 left-0 text-white py-4 font-[Montserrat] h-[7rem] flex items-center z-[999] w-[100%] duration-150 lg:hidden block">
+    <div class="px-4 sm:px-8 md:px-16 lg:px-24 flex justify-between items-center w-[100%]">
+    <a href="#"><img src="./img/logo.png" alt="Logo" class="h-[3rem] mr-8"></a>
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn lg:hidden block bg-[#1c1c1e]/50"><span></span></label>
+    <label for="active" class="close lg:hidden block"></label>
+      <div class="wrapper flex p-8 gap-8 flex-col">
+          <div>
+              <a href="#"><img src="./img/logo.png" alt="Logo" class="mb:h-[5rem] h-[4rem] mr-8 mb-8 sm:mb-16"></a>
+          </div>
+          <div class="mb-2">
+              <span class="mobileMenuPoint active"><a href="#" class="text-xl">Главная</a></span>
+              <span class="mobileMenuPoint"><a href="#" class="text-lg">О компании</a></span>
+              <span class="mobileMenuPoint"><a href="#" class="text-lg">Продукция</a></span>
+              <span class="mobileMenuPoint"><a href="#" class="text-lg">Новости</a></span>
+              <span class="mobileMenuPoint "><a href="#" class="text-lg">Дистрибьюторы</a></span>
+              <div class="gap-3 flex-col flex">
+                  <div class="flex flex-row gap-2">
+                      <div class="flex flex-col justify-around">
+                          <a href="tel:8(7182)539804" class="text-lg text-[#53606B]">+7 (7182) 539-804</a>
+                      </div>
+                  </div>
+                  <div class="flex flex-row gap-2">
+                      <div class="flex flex-col justify-around">
+                          <p class="text-lg text-[#53606B]">г. Павлодар, <br> ул. Генерала Дюсенова 3/1</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+  </div>
+</div>
+  </header>
+
+  <section id="animal">
+    <div  class="pb-0 p-6 pt-24 sm:pb-6 sm:pt-24 sm:p-8 md:pb-6 md:pt-24 md:p-12 lg:pb-6 lg:pt-[9rem] lg:p-16 xl:pb-6 xl:pt-28 xl:p-18 2xl:pb-6 2xl:pt-32 2xl:p-24 ">
+        <div class="mb-3">
+            <a class="text-[#838383]">Главная</a> / <a class="text-[#E31E24]">О компании</a>
+        </div>
+        <div class="flex flex-col gap-6">
+            <div class="flex justify-between flex-col gap-3 lg:gap-6">
+                <div >
+                    <span class="text-xl md:text-1xl 2xl:text-4xl font-bold">
+                        Животноводство
+                    </span>
+                </div>
+                <div class="flex flex-col gap-2 w-[100%]">
+                    <span class="sm:text-sm md:text-md 2xl:text-lg">
+                        Животноводческий комплекс ТОО «Предприятие РубиКОМ» имеет статус племенного хозяйства и считается одним из крупнейших на территории Павлодарской области с поголовьем около 60 тысяч свиней единовременного содержания и проектной мощностью 112 000 голов в год. Производственные помещения расположены на территории села Павлодарское и Черноярского сельского округа.
+                    </span>
+                </div>
+            </div>
+            <div class="flex w-[100%] gap-6">
+                <div class="w-[100%] h-[20rem] relative">
+                    <img src="/img/4.jpg" alt="" class="fullscreen-img">
+                </div>    
+                <div class="w-[100%] h-[20rem] relative md:block hidden">
+                    <img src="/img/8.jpg" alt="" class="fullscreen-img">
+                </div>  
+      
+            </div>
+            <div class="flex gap-2 md:flex-row flex-col">
+                <div class="flex flex-col gap-0 md:gap-3">
+
+                    <span class="sm:text-sm md:text-md 2xl:text-lg">Производственные помещения оснащены оборудованием ведущих производителей Европы, внедрена современная система автоматического кормления и поения свиней, используется высокотехнологичная система вентиляции и микроклимата, система кессонного навозоудаления.</span>
+                    <span class="sm:text-sm md:text-md 2xl:text-lg">Нами используется трехпородное скрещивание пород Ландрас, Крупная белая, Дюрок. Строгий отбор пород скрещивания по качеству и здоровью животных пород плюс новейшие технологии и правильное кормление позволяют использовать генетический потенциал животных на 100% Сегодня свинокомплекс «РубиКОМ» обеспечивает племенным материалом большинство фермерских хозяйств области.</span>
+                    <span class="sm:text-sm md:text-md 2xl:text-lg">Очень важный фактор работы животноводческого комплекса — это экология! У нас действует безотходное производство. Продукты жизнедеятельности животных перерабатываются в специальных цехах после чего выдерживаются полгода в лагунах и вносятся на поля в качестве удобрения.</span>
+                </div>
+                <div class="w-[100%] h-[20rem] relative">
+                    <img src="/img/7.jpg" alt="" class="fullscreen-img">
+                </div>  
+            </div>
+            <div class="flex gap-3  md:flex-row flex-col">
+                <div class="w-[100%] h-[20rem] relative">
+                    <img src="/img/10.jpg" alt="" class="fullscreen-img">
+                </div>  
+                <div class="flex flex-col gap-0 md:gap-3">
+                    <span class="sm:text-sm md:text-md 2xl:text-lg">Таким образом, благодаря применению новейших разработок в области животноводства наше производство превратилось в ведущее предприятие отрасли с передовым оборудованием, аналогов которому в Казахстане не найти.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section id="feed">
+    <div class="pb-0 p-6 pt-6 sm:pt-2 md:pt-2 lg:pt-2 xl:pt-2 2xl:pt-2 sm:pb-6 sm:p-8 md:pb-6 md:p-12 lg:pb-6 lg:p-16 xl:pb-6 xl:p-18 2xl:pb-6 2xl:p-24">
+        <div class="flex flex-col gap-6">
+            <div class="flex justify-between flex-col gap-3 lg:gap-6">
+                <div >
+                    <span class="text-xl md:text-1xl 2xl:text-4xl font-bold">
+                        Комбикормовый завод
+                    </span>
+                </div>
+                <div class="flex flex-col gap-2 w-[100%]">
+                    <span class="sm:text-sm md:text-md 2xl:text-lg">
+                        В декабре 2008 года компанией запущен в работу комбикормовый завод, который расположен в посёлке Жанаул. Проект выполнен специалистами фирмы Трилис совместно с китайской компанией Muyang. Заводполностью снабжён высокоэффективным оборудованием: сушилка для зерна, элеватор, склады хранения сырья и готовой продукции. Объём единовременного хранения превышает 9 тысяч тонн.
+                    </span>
+                </div>
+            </div>
+            <div class="flex w-[100%] gap-6">
+                <div class="w-[100%] h-[20rem] relative">
+                    <img src="/img/2 (1).jpg" alt="" class="fullscreen-img">
+                </div>    
+                <div class="w-[100%] h-[20rem] relative md:block hidden">
+                    <img src="/img/1 (1).jpg" alt="" class="fullscreen-img">
+                </div>  
+      
+            </div>
+            <div class="flex gap-2 md:flex-row flex-col">
+                <div class="flex flex-col gap-0 md:gap-3 w-[100%]">
+
+                    <p class="sm:text-sm md:text-md 2xl:text-lg">
+                        Комбикормовый завод – это развитый комплекс, оснащённый передовым компьютерным управлением, которое позволяет полностью исключить человеческие ошибки. Основная продукция завода - полнорационный комбикорм высшей пробы для всех видов сельскохозяйственных животных, птицы и рыбы любого возраста. Комбикорм выпускается в рассыпном виде и в форме гранул, которые гарантируют целостность всех белково-витаминно-минеральных добавок. Производственная мощности завода - 20 тонн/час. Ассортимент практически не ограничен. На предприятии производятся как типовые полнорационные комбикорма, так и корма по собственным рецептам. Завод заинтересован расширить рынок сбыта продукции. Наши клиенты могут покупать комбикорма по индивидуальному рецепту, используя любые компоненты, не сомневаясь в эффективности покупаемых комбикормов. ТОО «Предприятие РубиКОМ» готово рассмотреть и обсудить любые ваши предложения по взаимовыгодному сотрудничеству.
+                    </p>
+                </div>
+                <div class="w-[100%] h-[20rem] relative">
+                    <img src="/img/2 (1).jpg" alt="" class="fullscreen-img">
+                </div>  
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section id="meat">
+    <div class="pb-0 p-6 pt-6 sm:pt-2 md:pt-2 lg:pt-2 xl:pt-2 2xl:pt-2 sm:pb-6 sm:p-8 md:pb-6 md:p-12 lg:pb-6 lg:p-16 xl:pb-6 xl:p-18 2xl:pb-6 2xl:p-24">
+        <div class="flex flex-col gap-6">
+            <div class="flex justify-between flex-col gap-3 lg:gap-6">
+                <div >
+                    <span class="text-xl md:text-1xl 2xl:text-4xl font-bold">
+                        Мясоперерабатывающий комбинат
+                    </span>
+                </div>
+                <div class="flex flex-col gap-2 w-[100%]">
+                    <span class="sm:text-sm md:text-md 2xl:text-lg">
+                        Уже много лет компания «РубиКОМ» предлагает гурманам самые изысканные мясные деликатесы и колбасы. Сегодня предприятие считается одним из главных производителей натуральных мясопродуктов в Казахстане. Держать марку на высоком уровне позволяют тщательное соблюдение технологических режимов и строжайшая система контроля над качеством.
+                    </span>
+                </div>
+            </div>
+            <div class="flex w-[100%] gap-6">
+                <div class="w-[100%] h-[20rem] relative">
+                    <img src="/img/1_n.jpg" alt="" class="fullscreen-img">
+                </div>    
+                <div class="w-[100%] h-[20rem] relative md:block hidden">
+                    <img src="/img/2 (2).jpg" alt="" class="fullscreen-img">
+                </div>  
+      
+            </div>
+            <div class="flex gap-2 md:flex-row flex-col">
+                <div class="flex flex-col gap-0 md:gap-3 w-[80%]">
+
+                    <span class="sm:text-sm md:text-md 2xl:text-lg">Ассортимент фирменной продукции – наша отдельная гордость. Сегодня под торговой маркой «Рубиком» выпускается более 150 видов вареных, полукопчёных, варено-копчёных колбас, сосисок, сарделек и самых разных деликатесов.
+                        Завод развивается в ногу со временем и оперативно отвечает на меняющиеся запросы рынка: расширяет выбор продукции и выпускает новые продукты, воплощая идеи наших талантливых технологов.
+                        Качество исходного сырья влияет на вкус продукта, поэтому мы используем только первоклассное охлажденное мясо, которым обеспечивает собственный животноводческий комплекс «РубиКОМ». В рецептуре отсутствуют химические консерванты и красители, а также опасные для здоровья заменители и добавки. Заводские лаборатории ежедневно отслеживают экологическую чистоту сырья.
+                    </span>
+                </div>
+                <div class="w-[100%] h-[20rem] relative">
+                    <img src="/img/4 (1).jpg" alt="" class="fullscreen-img">
+                </div>  
+            </div>
+            <div class="flex gap-3  md:flex-row flex-col">
+                <div class="w-[100%] h-[20rem] relative">
+                    <img src="/img/3.jpg" alt="" class="fullscreen-img">
+                </div>  
+                <div class="w-[100%] flex flex-col gap-0 md:gap-3">
+                    <p class="sm:text-sm md:text-md 2xl:text-lg">Великолепный вкус первосортной продукции нашей компании завоевал любовь покупателей Павлодарской, Восточно-Казахстанской, Карагандинской, Алматинской и Акмолинской областях. Более 50 золотых и серебряных медалей с международных продуктовых выставок мы получили в награду за новаторство в этой отрасли.
+                        Мясоперерабатывающий комбинат сертифицировал систему менеджмента качества и подтвердил соответствие высоким требованиям международного стандарта ИСО 9001. Компания «РубиКОМ» процветает и с уверенностью смотрит в будущее!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section id="crop">
+    <div class="pb-0 p-6 pt-6 sm:pt-2 md:pt-2 lg:pt-2 xl:pt-2 2xl:pt-2 sm:pb-6 sm:p-8 md:pb-6 md:p-12 lg:pb-6 lg:p-16 xl:pb-6 xl:p-18 2xl:pb-6 2xl:p-24">
+        <div class="flex flex-col gap-6">
+            <div class="flex justify-between flex-col gap-3 lg:gap-6">
+                <div >
+                    <span class="text-xl md:text-1xl 2xl:text-4xl font-bold">
+                        Полеводство
+                    </span>
+                </div>
+                <div class="flex flex-col gap-2 w-[100%]">
+                    <span class="sm:text-sm md:text-md 2xl:text-lg">
+                        ТОО «Предприятие РубиКОМ» производит собственные корма и не зависит от поставщиков, а значит полностью отвечает за фирменные продукты на прилавках магазинов. В 2004 году компания открывает для себя новую отрасль производства – полеводство. С тех пор на фураж мы выращиваем ячмень и пшеницу. Посевные площади расположены в благоприятных и экологически чистых регионах Павлодарской области: Качирском и Щербактинском. Сегодня ТОО «Предприятие РубиКОМ» обрабатывает свыше 20 тысяч гектар земли.
+                    </span>
+                </div>
+            </div>
+            <div class="flex w-[100%] gap-6">
+                <div class="w-[100%] h-[20rem] relative">
+                    <img src="/img/4 (2).jpg" alt="" class="fullscreen-img">
+                </div>    
+                <div class="w-[100%] h-[20rem] relative md:block hidden">
+                    <img src="/img/3 (1).jpg" alt="" class="fullscreen-img">
+                </div>  
+      
+            </div>
+            <div class="flex gap-2 md:flex-row flex-col">
+                <div class="flex flex-col gap-0 md:gap-3 w-[80%]">
+
+                    <span class="sm:text-sm md:text-md 2xl:text-lg">Работой полеводов ТОО «РубиКОМ» интересуются и ученые. Подписан договор о сотрудничестве с НИИ сельского хозяйства имени Бараева, согласно которому ведутся научно-исследовательские работы по оптимальному подбору сортов злаковых культур. Новаторство в области полеводства – наша непосредственная задача. Для того, чтобы ежегодно получать высокие урожаи специалисты компании модернизировали технологию обработки почвы, ранее взятой на вооружение у канадцев. Забегая вперёд, хочется заверить наших партнёров и покупателей в том, что мы никогда не останавливаемся на достигнутом. В будущем планируем развивать собственную кормовую базу, внедряя современные технологии и личное новаторство.
+                    </span>
+                </div>
+                <div class="w-[100%] h-[20rem] relative">
+                    <img src="/img/2 (3).jpg" alt="" class="fullscreen-img">
+                </div>  
+            </div>
+        </div>
+    </div>
+  </section>
+
+
+
+  <footer>
+    <div class="p-6 pb-6 sm:pb-6 sm:pt-6 sm:p-8 md:pb-6 md:pt-6 md:p-12 lg:pt-6 lg:pb-6 lg:p-16 xl:pt-6 xl:pb-6 xl:p-18 2xl:pt-6 2xl:pb-6 2xl:p-24 bg-[#191D28] border-t-[1px] border-[#E31E24]">
+        <div class="flex flex-col gap-12">
+        <div class="flex justify-between items-center">
+            <div>
+                <a href="#"><img src="./img/logo.png" alt="Logo" class="h-[3rem] mr-8"></a>
+            </div>
+            <div class="socialContainer flex items-center gap-3">
+                <div class="flex gap-3">
+                    <img src="/img/footer_image_2.webp" alt="" class="w-[25px] h-[45px]">
+                    <img src="/img/footer_image_3.webp" alt="" class="w-[45px] h-[45px]">
+                </div>
+                <a class="socialContainer_item w-[45px] h-[45px] border-[1px] border-[#fff] rounded-full flex items-center justify-center cursor-pointer duration-150"> 
+                    <span>
+                        <svg width="18" height="18" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.0276 0.0012304C11.7573 -0.00156983 12.4871 0.00576429 13.2166 0.0232305L13.4106 0.0302304C13.6346 0.0382304 13.8556 0.0482304 14.1226 0.0602304C15.1866 0.11023 15.9126 0.278231 16.5496 0.525231C17.2096 0.779231 17.7656 1.12323 18.3216 1.67923C18.83 2.17884 19.2234 2.78318 19.4746 3.45023C19.7216 4.08723 19.8896 4.81423 19.9396 5.87823C19.9516 6.14423 19.9616 6.36623 19.9696 6.59023L19.9756 6.78423C19.9934 7.51342 20.001 8.24283 19.9986 8.97223L19.9996 9.71823V11.0282C20.0021 11.758 19.9944 12.4877 19.9766 13.2172L19.9706 13.4112C19.9626 13.6352 19.9526 13.8562 19.9406 14.1232C19.8906 15.1872 19.7206 15.9132 19.4746 16.5502C19.2242 17.218 18.8307 17.8228 18.3216 18.3222C17.8216 18.8306 17.2169 19.224 16.5496 19.4752C15.9126 19.7222 15.1866 19.8902 14.1226 19.9402C13.8556 19.9522 13.6346 19.9622 13.4106 19.9702L13.2166 19.9762C12.4871 19.994 11.7573 20.0017 11.0276 19.9992L10.2816 20.0002H8.9726C8.24286 20.0027 7.51313 19.995 6.7836 19.9772L6.5896 19.9712C6.35221 19.9626 6.11487 19.9526 5.8776 19.9412C4.8136 19.8912 4.0876 19.7212 3.4496 19.4752C2.78228 19.2246 2.17784 18.8311 1.6786 18.3222C1.16965 17.8225 0.775825 17.2178 0.524601 16.5502C0.277601 15.9132 0.1096 15.1872 0.0596004 14.1232C0.0484633 13.8859 0.0384632 13.6486 0.0296004 13.4112L0.0246005 13.2172C0.00616412 12.4877 -0.00217011 11.758 -0.000399562 11.0282V8.97223C-0.00319053 8.24283 0.00414359 7.51343 0.0216005 6.78423L0.0286005 6.59023C0.0366005 6.36623 0.0466005 6.14423 0.0586005 5.87823C0.1086 4.81323 0.2766 4.08823 0.5236 3.45023C0.774973 2.78285 1.16956 2.17868 1.6796 1.68023C2.17849 1.17098 2.78256 0.776803 3.4496 0.525231C4.0876 0.278231 4.8126 0.11023 5.8776 0.0602304L6.5896 0.0302304L6.7836 0.0252306C7.51278 0.00680338 8.24219 -0.00153085 8.9716 0.000230468L11.0276 0.0012304ZM9.9996 5.00123C9.33711 4.99186 8.67936 5.11425 8.06458 5.3613C7.4498 5.60834 6.89025 5.97511 6.41845 6.44029C5.94664 6.90546 5.572 7.45977 5.31629 8.07099C5.06057 8.68222 4.92889 9.33817 4.92889 10.0007C4.92889 10.6633 5.06057 11.3192 5.31629 11.9305C5.572 12.5417 5.94664 13.096 6.41845 13.5612C6.89025 14.0264 7.4498 14.3931 8.06458 14.6402C8.67936 14.8872 9.33711 15.0096 9.9996 15.0002C11.3257 15.0002 12.5975 14.4734 13.5351 13.5358C14.4728 12.5981 14.9996 11.3263 14.9996 10.0002C14.9996 8.67415 14.4728 7.40238 13.5351 6.4647C12.5975 5.52701 11.3257 5.00123 9.9996 5.00123ZM9.9996 7.00123C10.3981 6.99389 10.7941 7.06603 11.1644 7.21344C11.5347 7.36085 11.8719 7.58057 12.1564 7.85978C12.4408 8.13898 12.6668 8.47206 12.821 8.83957C12.9753 9.20708 13.0548 9.60165 13.0549 10.0002C13.0549 10.3988 12.9756 10.7934 12.8214 11.1609C12.6673 11.5285 12.4414 11.8617 12.1571 12.141C11.8727 12.4203 11.5356 12.6401 11.1653 12.7876C10.7951 12.9352 10.3991 13.0074 10.0006 13.0002C9.20495 13.0002 8.44189 12.6842 7.87928 12.1216C7.31667 11.5589 7.0006 10.7959 7.0006 10.0002C7.0006 9.20458 7.31667 8.44152 7.87928 7.87891C8.44189 7.3163 9.20495 7.00023 10.0006 7.00023L9.9996 7.00123ZM15.2496 3.50123C14.927 3.51414 14.6219 3.65138 14.3982 3.8842C14.1745 4.11702 14.0496 4.42736 14.0496 4.75023C14.0496 5.0731 14.1745 5.38344 14.3982 5.61626C14.6219 5.84908 14.927 5.98632 15.2496 5.99923C15.5811 5.99923 15.8991 5.86753 16.1335 5.63311C16.3679 5.39869 16.4996 5.08075 16.4996 4.74923C16.4996 4.41771 16.3679 4.09977 16.1335 3.86535C15.8991 3.63093 15.5811 3.49923 15.2496 3.49923V3.50123Z"/>
+                        </svg>                            
+                    </span>
+                </a>
+                <a class="socialContainer_item w-[45px] h-[45px] border-[1px] border-[#fff] rounded-full flex items-center justify-center cursor-pointer duration-150">
+                    <span>
+                        <svg width="18" height="18" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 10C20 4.48 15.52 0 10 0C4.48 0 0 4.48 0 10C0 14.84 3.44 18.87 8 19.8V13H6V10H8V7.5C8 5.57 9.57 4 11.5 4H14V7H12C11.45 7 11 7.45 11 8V10H14V13H11V19.95C16.05 19.45 20 15.19 20 10Z"/>
+                            </svg>
+                                                     
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="w-[100%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-6">
+            <div class="flex flex-col gap-2">
+                <div><a href="/about" class="font-bold text-2xl text-[#fff] duration-150 cursor-pointer hover:text-[#E31E24] active">О компании</a></div>
+                <div><a href="/about/animal" class="text-[#fff] text-sm duration-150 cursor-pointer hover:text-[#E31E24]">Животноводство</a></div>
+                <div><a href="/about/crop" class="text-[#fff] text-sm duration-150 cursor-pointer hover:text-[#E31E24]">Полеводство</a></div>
+                <div><a href="/about/feed" class="text-[#fff] text-sm duration-150 cursor-pointer hover:text-[#E31E24] ">Комбикормовый завод</a></div>
+                <div><a href="/about/meat" class="text-[#fff] text-sm duration-150 cursor-pointer hover:text-[#E31E24]">Мясоперерабатывающий комбинат</a></div>
+            </div>
+            <div class="flex flex-col gap-2">
+                <span class="font-bold text-2xl text-[#fff] ">Продукция</span>
+                <span class="text-[#fff] text-sm">Варенные колбасы</span>
+                <span class="text-[#fff] text-sm">Ветчины</span>
+                <span class="text-[#fff] text-sm">Шашлык</span>
+                <span class="text-[#fff] text-sm">Восточный мастер</span>
+                <span class="text-[#fff] text-sm">Деликатесы</span>
+            </div>
+            <div class="flex flex-col gap-2">
+                <span class="font-bold text-2xl text-[#fff] ">Новости</span>
+                <span class="text-[#fff] text-sm">Новость 1</span>
+                <span class="text-[#fff] text-sm">Новость 2</span>
+                <span class="text-[#fff] text-sm">Новость 3</span>
+                <span class="text-[#fff] text-sm">Новость 4</span>
+                <span class="text-[#fff] text-sm">Новость 5</span>
+            </div>
+            <div class="flex flex-col gap-2">
+                <span class="font-bold text-2xl text-[#fff] ">Дистрибьюторы</span>
+                <span class="text-[#fff] text-sm">г. Павлодар</span>
+                <span class="text-[#fff] text-sm">г. Астана</span>
+                <span class="text-[#fff] text-sm">г. Алматы</span>
+                <span class="text-[#fff] text-sm">г. Усть-Каменногорск</span>
+                <span class="text-[#fff] text-sm">г. Караганда</span>
+            </div>
+        </div>
+        <div class="flex items-center border-t-[1px] border-[#242833] justify-between p-4">
+            <div class="text-[#fff] text-sm">
+                © <script>document.write("1994 - " + new Date().getFullYear())</script> Все права защищены ТОО предприятие «Рубиком»
+            </div>
+        </div>
+    </div>
+    </div>
+</footer>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js" integrity="sha256-huW7yWl7tNfP7lGk46XE+Sp0nCotjzYodhVKlwaNeco=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="/js/app.js"></script>
+<script>
+    SmoothScroll({
+        // Время скролла 400 = 0.4 секунды
+        animationTime    : 400,
+        // Размер шага в пикселях 
+        stepSize         : 75,
+    
+        // Дополнительные настройки:
+        
+        // Ускорение 
+        accelerationDelta : 30,  
+        // Максимальное ускорение
+        accelerationMax   : 2,   
+    
+        // Поддержка клавиатуры
+        keyboardSupport   : true,  
+        // Шаг скролла стрелками на клавиатуре в пикселях
+        arrowScroll       : 50,
+    
+        // Pulse (less tweakable)
+        // ratio of "tail" to "acceleration"
+        pulseAlgorithm   : true,
+        pulseScale       : 4,
+        pulseNormalize   : 1,
+    
+        // Поддержка тачпада
+        touchpadSupport   : true,
+    })
+</script>
+</html>

@@ -17,18 +17,19 @@
           <img src="img/logo.png" alt="Молком" class="w-[30%] sm:w-[25%] md:w-[20%] lg:w-[15%]">
         </div>
         
-    <header class="fixed top-0 left-0 text-white py-4 font-[Montserrat] h-[7rem] flex items-center z-[999] w-[100%] duration-150">
+    <header class="desktopMenu fixed top-0 left-0 text-white py-4 font-[Montserrat] h-[7rem] items-center z-[999] w-[100%] duration-150 lg:flex hidden">
         <div class="px-4 sm:px-8 md:px-16 lg:px-24 flex justify-between items-center w-[100%]">
           <!-- Logo and navigation -->
           <div class="flex items-center justify-between">
             <!-- Replace with your logo image -->
-            <a href="#"><img src="./img/logo.png" alt="Logo" class="h-[3rem] mr-8"></a>
+            <a href="/"><img src="./img/logo.png" alt="Logo" class="h-[3rem] mr-8"></a>
 
-            <nav class="navMenu md:block hidden">
+            <nav class="navMenu">
               <ul class="flex lg:space-x-4 lg:gap-4 gap-4 sm:gap-2 duration-150">
-                <li><a href="#" class="menuPoint sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 active">Главная <span class="chevron"></a></li>
-                <li><a href="#" class="menuPoint sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2">О компании </span></a></li>
-                <li><a href="#" class="menuPoint sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2">Продукция <span class="chevron"></span></a></li>
+                <li class="menuPointChevron"><a href="#" class="menuPoint sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 active">Главная </a>
+                </li>
+                <li><a href="/about.html" class="menuPoint sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2">О компании</a></li>
+                <li><a href="#" class="menuPoint sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2">Продукция </a></li>
                 <li><a href="#" class="menuPoint sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2">Новости</a></li>
                 <li><a href="#" class="menuPoint sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2">Дистрибьюторы</a></li>
                 
@@ -39,7 +40,7 @@
           </div>
 
                     <!-- Other header content like search or location -->
-                    <div class="flex-col gap-3 xl:flex-row hidden lg:flex">
+                    <div class="flex-col gap-3 xl:flex-row hidden xl:flex">
                         <div class="flex flex-row gap-2">
                             <div class="w-[15%] flex items-center">
                                 <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -67,33 +68,39 @@
             
                       </div>
 
-          <input type="checkbox" id="active">
-          <label for="active" class="menu-btn md:hidden block"><span></span></label>
-          <label for="active" class="close md:hidden block"></label>
-            <div class="wrapper flex p-8 gap-8 flex-col">
-                <div>
-                    <a href="#"><img src="./img/logo.png" alt="Logo" class="mb:h-[5rem] h-[4rem] mr-8 mb-8 sm:mb-16"></a>
-                </div>
-                <div class="mb-2">
-                    <span class="mobileMenuPoint active"><a href="#" class="text-xl">Главная</a></span>
-                    <span class="mobileMenuPoint"><a href="#" class="text-lg">О компании</a></span>
-                    <span class="mobileMenuPoint"><a href="#" class="text-lg">Продукция</a></span>
-                    <span class="mobileMenuPoint"><a href="#" class="text-lg">Новости</a></span>
-                    <span class="mobileMenuPoint "><a href="#" class="text-lg">Дистрибьюторы</a></span>
-                    <div class="gap-3 flex-col flex">
-                        <div class="flex flex-row gap-2">
-                            <div class="flex flex-col justify-around">
-                                <a href="tel:8(7182)539804" class="text-lg text-[#53606B]">+7 (7182) 539-804</a>
-                            </div>
-                        </div>
-                        <div class="flex flex-row gap-2">
-                            <div class="flex flex-col justify-around">
-                                <p class="text-lg text-[#53606B]">г. Павлодар, <br> ул. Генерала Дюсенова 3/1</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </div>
+
+      </header>
+      <header class="mobileMenu fixed top-0 left-0 text-white py-4 font-[Montserrat] h-[7rem] flex items-center z-[999] w-[100%] duration-150 lg:hidden block">
+        <div class="px-4 sm:px-8 md:px-16 lg:px-24 flex justify-between items-center w-[100%]">
+        <a href="#"><img src="./img/logo.png" alt="Logo" class="h-[3rem] mr-8"></a>
+        <input type="checkbox" id="active">
+        <label for="active" class="menu-btn lg:hidden block bg-[#1c1c1e]/50"><span></span></label>
+        <label for="active" class="close lg:hidden block"></label>
+          <div class="wrapper flex p-8 gap-8 flex-col">
+              <div>
+                  <a href="#"><img src="./img/logo.png" alt="Logo" class="mb:h-[5rem] h-[4rem] mr-8 mb-8 sm:mb-16"></a>
+              </div>
+              <div class="mb-2">
+                  <span class="mobileMenuPoint active"><a href="#" class="text-xl">Главная</a></span>
+                  <span class="mobileMenuPoint"><a href="#" class="text-lg">О компании</a></span>
+                  <span class="mobileMenuPoint"><a href="#" class="text-lg">Продукция</a></span>
+                  <span class="mobileMenuPoint"><a href="#" class="text-lg">Новости</a></span>
+                  <span class="mobileMenuPoint "><a href="#" class="text-lg">Дистрибьюторы</a></span>
+                  <div class="gap-3 flex-col flex">
+                      <div class="flex flex-row gap-2">
+                          <div class="flex flex-col justify-around">
+                              <a href="tel:8(7182)539804" class="text-lg text-[#53606B]">+7 (7182) 539-804</a>
+                          </div>
+                      </div>
+                      <div class="flex flex-row gap-2">
+                          <div class="flex flex-col justify-around">
+                              <p class="text-lg text-[#53606B]">г. Павлодар, <br> ул. Генерала Дюсенова 3/1</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+      </div>
+    </div>
       </header>
       <section class="h-[90%]">
       <div class="h-screen relative w-full items-center flex justify-center p-4 sm:p-8 md:p-12 lg:p-16 xl:p-18 2xl:p-24 relative">
@@ -292,7 +299,7 @@
         </div>
     </section>
     <section>
-        <div class="p-6 sm:p-8 md:p-12 lg:p-16 xl:p-18 2xl:p-24">
+        <div class="pb-0 p-6 sm:pb-6 sm:p-8 md:pb-6 md:p-12 lg:pb-6 lg:p-16 xl:pb-6 xl:p-18 2xl:pb-6 2xl:p-24 ">
             <div class="flex w-[100%] h-full lg:h-[30rem]">
                 <div class="w-[100%] flex flex-col gap-12 relative">
                     <div class="w-[100%] items-start flex flex-col gap-12">
@@ -411,9 +418,491 @@
             </div>
         </div>
     </section>
+    <section>
+        <div class="pb-0 p-6 sm:pb-6 sm:p-8 md:pb-6 md:p-12 lg:pb-6 lg:p-16 xl:pb-6 xl:p-18 2xl:pb-6 2xl:p-24 ">
+            <div class="flex flex-col gap-6">
+                <div class="flex justify-between flex-col md:flex-row gap-6">
+                    <div >
+                        <span class="text-lg md:text-xl 2xl:text-4xl font-bold">
+                            Lorem ipsum dolor sit amet consectetur <span class="text-[#E31E24]"s>adipisicing elit.</span>
+                        </span>
+                    </div>
+                    <div class="flex flex-col gap-2 w-[100%] md:w-[50%]">
+                        <span class="sm:text-sm md:text-md 2xl:text-lg">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, magni modi cumque aut dignissimos porro dolores reprehenderit fugiat quam dolor quis odit officia, distinctio id.
+                        </span>
+                        <a class="text-[#E31E24] text-md flex gap-3 hover:gap-6 duration-150 cursor-pointer hover:underline hover:decoration-1 hover:underline-offset-8">Подробнее
+                            <span class="rotate-90 duration-150">
+                                <svg width="25" height="25" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_201_23)">
+                                    <path d="M27.6604 15.61L18.0004 6L8.34045 15.61C8.22647 15.6968 8.13248 15.8071 8.06483 15.9333C7.99717 16.0596 7.95744 16.1989 7.94832 16.3419C7.9392 16.4849 7.9609 16.6281 8.01196 16.762C8.06301 16.8958 8.14223 17.0172 8.24425 17.1177C8.34627 17.2183 8.46871 17.2958 8.60327 17.3449C8.73784 17.3941 8.88139 17.4137 9.02421 17.4025C9.16703 17.3914 9.30579 17.3497 9.43109 17.2802C9.55638 17.2108 9.66529 17.1152 9.75045 17L17.0004 9.81V28.94C17.0004 29.2052 17.1058 29.4596 17.2933 29.6471C17.4809 29.8346 17.7352 29.94 18.0004 29.94C18.2657 29.94 18.52 29.8346 18.7076 29.6471C18.8951 29.4596 19.0004 29.2052 19.0004 28.94V9.81L26.2504 17C26.4388 17.187 26.6936 17.2915 26.959 17.2906C27.2243 17.2896 27.4785 17.1833 27.6654 16.995C27.8524 16.8067 27.9569 16.5518 27.956 16.2865C27.9551 16.0211 27.8488 15.767 27.6604 15.58V15.61Z" fill="#E31E24"/>
+                                    </g>
+                                    <defs>
+                                    <clipPath id="clip0_201_23">
+                                    <rect width="36" height="36" fill="#E31E24"/>
+                                    </clipPath>
+                                    </defs>
+                                    </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex w-[100%] gap-6">
+                    <div class="w-[100%] h-[20rem] relative">
+                        <img src="/img/torg_set.jpg" alt="" class="fullscreen-img">
+                    </div>    
+                    <div class="w-[100%] h-[20rem] relative md:block hidden">
+                        <img src="/img/torg_set.jpg" alt="" class="fullscreen-img">
+                    </div>  
+                    <div class="w-[100%] h-[20rem] relative md:block hidden">
+                        <img src="/img/torg_set.jpg" alt="" class="fullscreen-img">
+                    </div>         
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="pb-6 p-6 sm:pb-6 sm:p-8 md:pb-6 md:p-12 lg:pb-6 lg:p-16 xl:pb-6 xl:p-18 2xl:pb-6 2xl:p-24 ">
+            <div class="flex flex-col gap-12">
+                <div class="flex items-center justify-center">
+                    <span class="text-lg md:text-xl 2xl:text-4xl font-bold">
+                        Медиа-<span class="text-[#E31E24]">центр</span>
+                    </span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Вставьте 8 элементов новостей здесь -->
+                    <div class="bg-gray-200 h-[20rem] rounded-[5px] flex flex-col">
+                        <div class="w-full max-h-full relative h-[50%]">
+                            <img src="https://imgholder.ru/300x300/8493a8/adb9ca&text=IMAGE+HOLDER&font=kelson" alt="" class="fullscreen-img">
+                        </div>
+                        <div class="w-full h-[50%] p-4 flex justify-between flex-col">
+                            <div class="flex justify-between gap-4">
+                                <span class="font-bold">Текст новости</span>
+                                <span>16.11.2023</span>
+                            </div>
+                            <div class="overflow-hidden">
+                                <span>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi tempora ad dolore eligendi optio sed repudiandae
+                                </span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <button class="flex gap-2 text-[#E31E24] hover:font-bold hover:gap-4 duration-150 moreBtn_holding">
+                                    Подробнее
+                                    <span class="rotate-45 duration-150">
+                                        <svg width="25" height="25" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_201_23)">
+                                            <path d="M27.6604 15.61L18.0004 6L8.34045 15.61C8.22647 15.6968 8.13248 15.8071 8.06483 15.9333C7.99717 16.0596 7.95744 16.1989 7.94832 16.3419C7.9392 16.4849 7.9609 16.6281 8.01196 16.762C8.06301 16.8958 8.14223 17.0172 8.24425 17.1177C8.34627 17.2183 8.46871 17.2958 8.60327 17.3449C8.73784 17.3941 8.88139 17.4137 9.02421 17.4025C9.16703 17.3914 9.30579 17.3497 9.43109 17.2802C9.55638 17.2108 9.66529 17.1152 9.75045 17L17.0004 9.81V28.94C17.0004 29.2052 17.1058 29.4596 17.2933 29.6471C17.4809 29.8346 17.7352 29.94 18.0004 29.94C18.2657 29.94 18.52 29.8346 18.7076 29.6471C18.8951 29.4596 19.0004 29.2052 19.0004 28.94V9.81L26.2504 17C26.4388 17.187 26.6936 17.2915 26.959 17.2906C27.2243 17.2896 27.4785 17.1833 27.6654 16.995C27.8524 16.8067 27.9569 16.5518 27.956 16.2865C27.9551 16.0211 27.8488 15.767 27.6604 15.58V15.61Z" fill="#E31E24"/>
+                                            </g>
+                                            <defs>
+                                            <clipPath id="clip0_201_23">
+                                            <rect width="36" height="36" fill="#E31E24"/>
+                                            </clipPath>
+                                            </defs>
+                                            </svg>
+                                    </span>
+                                </button>
+                                <div>
+                                    <span class="flex gap-2 items-center">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.99971 6.00299C8.34995 6.00299 8.69675 6.07198 9.02033 6.20601C9.3439 6.34003 9.63791 6.53648 9.88557 6.78414C10.1332 7.03179 10.3297 7.3258 10.4637 7.64938C10.5977 7.97295 10.6667 8.31976 10.6667 8.66999C10.6667 9.02023 10.5977 9.36703 10.4637 9.69061C10.3297 10.0142 10.1332 10.3082 9.88557 10.5558C9.63791 10.8035 9.3439 10.9999 9.02033 11.134C8.69675 11.268 8.34995 11.337 7.99971 11.337C7.29238 11.337 6.61402 11.056 6.11386 10.5558C5.6137 10.0557 5.33271 9.37732 5.33271 8.66999C5.33271 7.96266 5.6137 7.2843 6.11386 6.78414C6.61402 6.28398 7.29238 6.00299 7.99971 6.00299ZM7.99971 7.00299C7.5576 7.00299 7.13359 7.17862 6.82096 7.49125C6.50834 7.80387 6.33271 8.22788 6.33271 8.66999C6.33271 9.11211 6.50834 9.53612 6.82096 9.84874C7.13359 10.1614 7.5576 10.337 7.99971 10.337C8.44183 10.337 8.86584 10.1614 9.17846 9.84874C9.49108 9.53612 9.66671 9.11211 9.66671 8.66999C9.66671 8.22788 9.49108 7.80387 9.17846 7.49125C8.86584 7.17862 8.44183 7.00299 7.99971 7.00299ZM7.99971 3.66699C11.0757 3.66699 13.7297 5.76699 14.4667 8.70999C14.4843 8.77426 14.4889 8.84139 14.4802 8.90746C14.4715 8.97352 14.4497 9.03718 14.4161 9.0947C14.3824 9.15222 14.3376 9.20243 14.2843 9.24238C14.231 9.28233 14.1702 9.31122 14.1055 9.32735C14.0409 9.34348 13.9737 9.34653 13.9078 9.33631C13.842 9.32609 13.7788 9.30281 13.7221 9.26784C13.6654 9.23287 13.6162 9.18691 13.5775 9.13267C13.5388 9.07843 13.5113 9.017 13.4967 8.95199C13.1873 7.72827 12.4784 6.64278 11.4823 5.8675C10.4862 5.09222 9.25989 4.67148 7.99765 4.67194C6.73541 4.6724 5.50942 5.09403 4.51389 5.87003C3.51837 6.64604 2.81025 7.73204 2.50171 8.95599C2.46872 9.08379 2.38654 9.19337 2.27309 9.26081C2.15963 9.32826 2.02411 9.34812 1.89608 9.31604C1.76804 9.28397 1.65789 9.20257 1.58963 9.0896C1.52137 8.97663 1.50055 8.84125 1.53171 8.71299C1.89341 7.27145 2.72627 5.99203 3.89808 5.07785C5.06988 4.16366 6.51349 3.6671 7.99971 3.66699Z" fill="black"/>
+                                        </svg>
+                                        0
+                                        </span>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-200 h-[20rem] rounded-[5px] flex flex-col">
+                        <div class="w-full max-h-full relative h-[50%]">
+                            <img src="https://imgholder.ru/300x300/8493a8/adb9ca&text=IMAGE+HOLDER&font=kelson" alt="" class="fullscreen-img">
+                        </div>
+                        <div class="w-full h-[50%] p-4 flex justify-between flex-col">
+                            <div class="flex justify-between gap-4">
+                                <span class="font-bold">Текст новости</span>
+                                <span>16.11.2023</span>
+                            </div>
+                            <div class="overflow-hidden">
+                                <span>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi tempora ad dolore eligendi optio sed repudiandae
+                                </span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <button class="flex gap-2 text-[#E31E24] hover:font-bold hover:gap-4 duration-150 moreBtn_holding">
+                                    Подробнее
+                                    <span class="rotate-45 duration-150">
+                                        <svg width="25" height="25" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_201_23)">
+                                            <path d="M27.6604 15.61L18.0004 6L8.34045 15.61C8.22647 15.6968 8.13248 15.8071 8.06483 15.9333C7.99717 16.0596 7.95744 16.1989 7.94832 16.3419C7.9392 16.4849 7.9609 16.6281 8.01196 16.762C8.06301 16.8958 8.14223 17.0172 8.24425 17.1177C8.34627 17.2183 8.46871 17.2958 8.60327 17.3449C8.73784 17.3941 8.88139 17.4137 9.02421 17.4025C9.16703 17.3914 9.30579 17.3497 9.43109 17.2802C9.55638 17.2108 9.66529 17.1152 9.75045 17L17.0004 9.81V28.94C17.0004 29.2052 17.1058 29.4596 17.2933 29.6471C17.4809 29.8346 17.7352 29.94 18.0004 29.94C18.2657 29.94 18.52 29.8346 18.7076 29.6471C18.8951 29.4596 19.0004 29.2052 19.0004 28.94V9.81L26.2504 17C26.4388 17.187 26.6936 17.2915 26.959 17.2906C27.2243 17.2896 27.4785 17.1833 27.6654 16.995C27.8524 16.8067 27.9569 16.5518 27.956 16.2865C27.9551 16.0211 27.8488 15.767 27.6604 15.58V15.61Z" fill="#E31E24"/>
+                                            </g>
+                                            <defs>
+                                            <clipPath id="clip0_201_23">
+                                            <rect width="36" height="36" fill="#E31E24"/>
+                                            </clipPath>
+                                            </defs>
+                                            </svg>
+                                    </span>
+                                </button>
+                                <div>
+                                    <span class="flex gap-2 items-center">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.99971 6.00299C8.34995 6.00299 8.69675 6.07198 9.02033 6.20601C9.3439 6.34003 9.63791 6.53648 9.88557 6.78414C10.1332 7.03179 10.3297 7.3258 10.4637 7.64938C10.5977 7.97295 10.6667 8.31976 10.6667 8.66999C10.6667 9.02023 10.5977 9.36703 10.4637 9.69061C10.3297 10.0142 10.1332 10.3082 9.88557 10.5558C9.63791 10.8035 9.3439 10.9999 9.02033 11.134C8.69675 11.268 8.34995 11.337 7.99971 11.337C7.29238 11.337 6.61402 11.056 6.11386 10.5558C5.6137 10.0557 5.33271 9.37732 5.33271 8.66999C5.33271 7.96266 5.6137 7.2843 6.11386 6.78414C6.61402 6.28398 7.29238 6.00299 7.99971 6.00299ZM7.99971 7.00299C7.5576 7.00299 7.13359 7.17862 6.82096 7.49125C6.50834 7.80387 6.33271 8.22788 6.33271 8.66999C6.33271 9.11211 6.50834 9.53612 6.82096 9.84874C7.13359 10.1614 7.5576 10.337 7.99971 10.337C8.44183 10.337 8.86584 10.1614 9.17846 9.84874C9.49108 9.53612 9.66671 9.11211 9.66671 8.66999C9.66671 8.22788 9.49108 7.80387 9.17846 7.49125C8.86584 7.17862 8.44183 7.00299 7.99971 7.00299ZM7.99971 3.66699C11.0757 3.66699 13.7297 5.76699 14.4667 8.70999C14.4843 8.77426 14.4889 8.84139 14.4802 8.90746C14.4715 8.97352 14.4497 9.03718 14.4161 9.0947C14.3824 9.15222 14.3376 9.20243 14.2843 9.24238C14.231 9.28233 14.1702 9.31122 14.1055 9.32735C14.0409 9.34348 13.9737 9.34653 13.9078 9.33631C13.842 9.32609 13.7788 9.30281 13.7221 9.26784C13.6654 9.23287 13.6162 9.18691 13.5775 9.13267C13.5388 9.07843 13.5113 9.017 13.4967 8.95199C13.1873 7.72827 12.4784 6.64278 11.4823 5.8675C10.4862 5.09222 9.25989 4.67148 7.99765 4.67194C6.73541 4.6724 5.50942 5.09403 4.51389 5.87003C3.51837 6.64604 2.81025 7.73204 2.50171 8.95599C2.46872 9.08379 2.38654 9.19337 2.27309 9.26081C2.15963 9.32826 2.02411 9.34812 1.89608 9.31604C1.76804 9.28397 1.65789 9.20257 1.58963 9.0896C1.52137 8.97663 1.50055 8.84125 1.53171 8.71299C1.89341 7.27145 2.72627 5.99203 3.89808 5.07785C5.06988 4.16366 6.51349 3.6671 7.99971 3.66699Z" fill="black"/>
+                                        </svg>
+                                        0
+                                        </span>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-200 h-[20rem] rounded-[5px] flex flex-col">
+                        <div class="w-full max-h-full relative h-[50%]">
+                            <img src="https://imgholder.ru/300x300/8493a8/adb9ca&text=IMAGE+HOLDER&font=kelson" alt="" class="fullscreen-img">
+                        </div>
+                        <div class="w-full h-[50%] p-4 flex justify-between flex-col">
+                            <div class="flex justify-between gap-4">
+                                <span class="font-bold">Текст новости</span>
+                                <span>16.11.2023</span>
+                            </div>
+                            <div class="overflow-hidden">
+                                <span>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi tempora ad dolore eligendi optio sed repudiandae
+                                </span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <button class="flex gap-2 text-[#E31E24] hover:font-bold hover:gap-4 duration-150 moreBtn_holding">
+                                    Подробнее
+                                    <span class="rotate-45 duration-150">
+                                        <svg width="25" height="25" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_201_23)">
+                                            <path d="M27.6604 15.61L18.0004 6L8.34045 15.61C8.22647 15.6968 8.13248 15.8071 8.06483 15.9333C7.99717 16.0596 7.95744 16.1989 7.94832 16.3419C7.9392 16.4849 7.9609 16.6281 8.01196 16.762C8.06301 16.8958 8.14223 17.0172 8.24425 17.1177C8.34627 17.2183 8.46871 17.2958 8.60327 17.3449C8.73784 17.3941 8.88139 17.4137 9.02421 17.4025C9.16703 17.3914 9.30579 17.3497 9.43109 17.2802C9.55638 17.2108 9.66529 17.1152 9.75045 17L17.0004 9.81V28.94C17.0004 29.2052 17.1058 29.4596 17.2933 29.6471C17.4809 29.8346 17.7352 29.94 18.0004 29.94C18.2657 29.94 18.52 29.8346 18.7076 29.6471C18.8951 29.4596 19.0004 29.2052 19.0004 28.94V9.81L26.2504 17C26.4388 17.187 26.6936 17.2915 26.959 17.2906C27.2243 17.2896 27.4785 17.1833 27.6654 16.995C27.8524 16.8067 27.9569 16.5518 27.956 16.2865C27.9551 16.0211 27.8488 15.767 27.6604 15.58V15.61Z" fill="#E31E24"/>
+                                            </g>
+                                            <defs>
+                                            <clipPath id="clip0_201_23">
+                                            <rect width="36" height="36" fill="#E31E24"/>
+                                            </clipPath>
+                                            </defs>
+                                            </svg>
+                                    </span>
+                                </button>
+                                <div>
+                                    <span class="flex gap-2 items-center">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.99971 6.00299C8.34995 6.00299 8.69675 6.07198 9.02033 6.20601C9.3439 6.34003 9.63791 6.53648 9.88557 6.78414C10.1332 7.03179 10.3297 7.3258 10.4637 7.64938C10.5977 7.97295 10.6667 8.31976 10.6667 8.66999C10.6667 9.02023 10.5977 9.36703 10.4637 9.69061C10.3297 10.0142 10.1332 10.3082 9.88557 10.5558C9.63791 10.8035 9.3439 10.9999 9.02033 11.134C8.69675 11.268 8.34995 11.337 7.99971 11.337C7.29238 11.337 6.61402 11.056 6.11386 10.5558C5.6137 10.0557 5.33271 9.37732 5.33271 8.66999C5.33271 7.96266 5.6137 7.2843 6.11386 6.78414C6.61402 6.28398 7.29238 6.00299 7.99971 6.00299ZM7.99971 7.00299C7.5576 7.00299 7.13359 7.17862 6.82096 7.49125C6.50834 7.80387 6.33271 8.22788 6.33271 8.66999C6.33271 9.11211 6.50834 9.53612 6.82096 9.84874C7.13359 10.1614 7.5576 10.337 7.99971 10.337C8.44183 10.337 8.86584 10.1614 9.17846 9.84874C9.49108 9.53612 9.66671 9.11211 9.66671 8.66999C9.66671 8.22788 9.49108 7.80387 9.17846 7.49125C8.86584 7.17862 8.44183 7.00299 7.99971 7.00299ZM7.99971 3.66699C11.0757 3.66699 13.7297 5.76699 14.4667 8.70999C14.4843 8.77426 14.4889 8.84139 14.4802 8.90746C14.4715 8.97352 14.4497 9.03718 14.4161 9.0947C14.3824 9.15222 14.3376 9.20243 14.2843 9.24238C14.231 9.28233 14.1702 9.31122 14.1055 9.32735C14.0409 9.34348 13.9737 9.34653 13.9078 9.33631C13.842 9.32609 13.7788 9.30281 13.7221 9.26784C13.6654 9.23287 13.6162 9.18691 13.5775 9.13267C13.5388 9.07843 13.5113 9.017 13.4967 8.95199C13.1873 7.72827 12.4784 6.64278 11.4823 5.8675C10.4862 5.09222 9.25989 4.67148 7.99765 4.67194C6.73541 4.6724 5.50942 5.09403 4.51389 5.87003C3.51837 6.64604 2.81025 7.73204 2.50171 8.95599C2.46872 9.08379 2.38654 9.19337 2.27309 9.26081C2.15963 9.32826 2.02411 9.34812 1.89608 9.31604C1.76804 9.28397 1.65789 9.20257 1.58963 9.0896C1.52137 8.97663 1.50055 8.84125 1.53171 8.71299C1.89341 7.27145 2.72627 5.99203 3.89808 5.07785C5.06988 4.16366 6.51349 3.6671 7.99971 3.66699Z" fill="black"/>
+                                        </svg>
+                                        0
+                                        </span>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-200 h-[20rem] rounded-[5px] flex flex-col">
+                        <div class="w-full max-h-full relative h-[50%]">
+                            <img src="https://imgholder.ru/300x300/8493a8/adb9ca&text=IMAGE+HOLDER&font=kelson" alt="" class="fullscreen-img">
+                        </div>
+                        <div class="w-full h-[50%] p-4 flex justify-between flex-col">
+                            <div class="flex justify-between gap-4">
+                                <span class="font-bold">Текст новости</span>
+                                <span>16.11.2023</span>
+                            </div>
+                            <div class="overflow-hidden">
+                                <span>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi tempora ad dolore eligendi optio sed repudiandae
+                                </span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <button class="flex gap-2 text-[#E31E24] hover:font-bold hover:gap-4 duration-150 moreBtn_holding">
+                                    Подробнее
+                                    <span class="rotate-45 duration-150">
+                                        <svg width="25" height="25" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_201_23)">
+                                            <path d="M27.6604 15.61L18.0004 6L8.34045 15.61C8.22647 15.6968 8.13248 15.8071 8.06483 15.9333C7.99717 16.0596 7.95744 16.1989 7.94832 16.3419C7.9392 16.4849 7.9609 16.6281 8.01196 16.762C8.06301 16.8958 8.14223 17.0172 8.24425 17.1177C8.34627 17.2183 8.46871 17.2958 8.60327 17.3449C8.73784 17.3941 8.88139 17.4137 9.02421 17.4025C9.16703 17.3914 9.30579 17.3497 9.43109 17.2802C9.55638 17.2108 9.66529 17.1152 9.75045 17L17.0004 9.81V28.94C17.0004 29.2052 17.1058 29.4596 17.2933 29.6471C17.4809 29.8346 17.7352 29.94 18.0004 29.94C18.2657 29.94 18.52 29.8346 18.7076 29.6471C18.8951 29.4596 19.0004 29.2052 19.0004 28.94V9.81L26.2504 17C26.4388 17.187 26.6936 17.2915 26.959 17.2906C27.2243 17.2896 27.4785 17.1833 27.6654 16.995C27.8524 16.8067 27.9569 16.5518 27.956 16.2865C27.9551 16.0211 27.8488 15.767 27.6604 15.58V15.61Z" fill="#E31E24"/>
+                                            </g>
+                                            <defs>
+                                            <clipPath id="clip0_201_23">
+                                            <rect width="36" height="36" fill="#E31E24"/>
+                                            </clipPath>
+                                            </defs>
+                                            </svg>
+                                    </span>
+                                </button>
+                                <div>
+                                    <span class="flex gap-2 items-center">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.99971 6.00299C8.34995 6.00299 8.69675 6.07198 9.02033 6.20601C9.3439 6.34003 9.63791 6.53648 9.88557 6.78414C10.1332 7.03179 10.3297 7.3258 10.4637 7.64938C10.5977 7.97295 10.6667 8.31976 10.6667 8.66999C10.6667 9.02023 10.5977 9.36703 10.4637 9.69061C10.3297 10.0142 10.1332 10.3082 9.88557 10.5558C9.63791 10.8035 9.3439 10.9999 9.02033 11.134C8.69675 11.268 8.34995 11.337 7.99971 11.337C7.29238 11.337 6.61402 11.056 6.11386 10.5558C5.6137 10.0557 5.33271 9.37732 5.33271 8.66999C5.33271 7.96266 5.6137 7.2843 6.11386 6.78414C6.61402 6.28398 7.29238 6.00299 7.99971 6.00299ZM7.99971 7.00299C7.5576 7.00299 7.13359 7.17862 6.82096 7.49125C6.50834 7.80387 6.33271 8.22788 6.33271 8.66999C6.33271 9.11211 6.50834 9.53612 6.82096 9.84874C7.13359 10.1614 7.5576 10.337 7.99971 10.337C8.44183 10.337 8.86584 10.1614 9.17846 9.84874C9.49108 9.53612 9.66671 9.11211 9.66671 8.66999C9.66671 8.22788 9.49108 7.80387 9.17846 7.49125C8.86584 7.17862 8.44183 7.00299 7.99971 7.00299ZM7.99971 3.66699C11.0757 3.66699 13.7297 5.76699 14.4667 8.70999C14.4843 8.77426 14.4889 8.84139 14.4802 8.90746C14.4715 8.97352 14.4497 9.03718 14.4161 9.0947C14.3824 9.15222 14.3376 9.20243 14.2843 9.24238C14.231 9.28233 14.1702 9.31122 14.1055 9.32735C14.0409 9.34348 13.9737 9.34653 13.9078 9.33631C13.842 9.32609 13.7788 9.30281 13.7221 9.26784C13.6654 9.23287 13.6162 9.18691 13.5775 9.13267C13.5388 9.07843 13.5113 9.017 13.4967 8.95199C13.1873 7.72827 12.4784 6.64278 11.4823 5.8675C10.4862 5.09222 9.25989 4.67148 7.99765 4.67194C6.73541 4.6724 5.50942 5.09403 4.51389 5.87003C3.51837 6.64604 2.81025 7.73204 2.50171 8.95599C2.46872 9.08379 2.38654 9.19337 2.27309 9.26081C2.15963 9.32826 2.02411 9.34812 1.89608 9.31604C1.76804 9.28397 1.65789 9.20257 1.58963 9.0896C1.52137 8.97663 1.50055 8.84125 1.53171 8.71299C1.89341 7.27145 2.72627 5.99203 3.89808 5.07785C5.06988 4.16366 6.51349 3.6671 7.99971 3.66699Z" fill="black"/>
+                                        </svg>
+                                        0
+                                        </span>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-200 h-[20rem] rounded-[5px] flex flex-col">
+                        <div class="w-full max-h-full relative h-[50%]">
+                            <img src="https://imgholder.ru/300x300/8493a8/adb9ca&text=IMAGE+HOLDER&font=kelson" alt="" class="fullscreen-img">
+                        </div>
+                        <div class="w-full h-[50%] p-4 flex justify-between flex-col">
+                            <div class="flex justify-between gap-4">
+                                <span class="font-bold">Текст новости</span>
+                                <span>16.11.2023</span>
+                            </div>
+                            <div class="overflow-hidden">
+                                <span>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi tempora ad dolore eligendi optio sed repudiandae
+                                </span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <button class="flex gap-2 text-[#E31E24] hover:font-bold hover:gap-4 duration-150 moreBtn_holding">
+                                    Подробнее
+                                    <span class="rotate-45 duration-150">
+                                        <svg width="25" height="25" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_201_23)">
+                                            <path d="M27.6604 15.61L18.0004 6L8.34045 15.61C8.22647 15.6968 8.13248 15.8071 8.06483 15.9333C7.99717 16.0596 7.95744 16.1989 7.94832 16.3419C7.9392 16.4849 7.9609 16.6281 8.01196 16.762C8.06301 16.8958 8.14223 17.0172 8.24425 17.1177C8.34627 17.2183 8.46871 17.2958 8.60327 17.3449C8.73784 17.3941 8.88139 17.4137 9.02421 17.4025C9.16703 17.3914 9.30579 17.3497 9.43109 17.2802C9.55638 17.2108 9.66529 17.1152 9.75045 17L17.0004 9.81V28.94C17.0004 29.2052 17.1058 29.4596 17.2933 29.6471C17.4809 29.8346 17.7352 29.94 18.0004 29.94C18.2657 29.94 18.52 29.8346 18.7076 29.6471C18.8951 29.4596 19.0004 29.2052 19.0004 28.94V9.81L26.2504 17C26.4388 17.187 26.6936 17.2915 26.959 17.2906C27.2243 17.2896 27.4785 17.1833 27.6654 16.995C27.8524 16.8067 27.9569 16.5518 27.956 16.2865C27.9551 16.0211 27.8488 15.767 27.6604 15.58V15.61Z" fill="#E31E24"/>
+                                            </g>
+                                            <defs>
+                                            <clipPath id="clip0_201_23">
+                                            <rect width="36" height="36" fill="#E31E24"/>
+                                            </clipPath>
+                                            </defs>
+                                            </svg>
+                                    </span>
+                                </button>
+                                <div>
+                                    <span class="flex gap-2 items-center">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.99971 6.00299C8.34995 6.00299 8.69675 6.07198 9.02033 6.20601C9.3439 6.34003 9.63791 6.53648 9.88557 6.78414C10.1332 7.03179 10.3297 7.3258 10.4637 7.64938C10.5977 7.97295 10.6667 8.31976 10.6667 8.66999C10.6667 9.02023 10.5977 9.36703 10.4637 9.69061C10.3297 10.0142 10.1332 10.3082 9.88557 10.5558C9.63791 10.8035 9.3439 10.9999 9.02033 11.134C8.69675 11.268 8.34995 11.337 7.99971 11.337C7.29238 11.337 6.61402 11.056 6.11386 10.5558C5.6137 10.0557 5.33271 9.37732 5.33271 8.66999C5.33271 7.96266 5.6137 7.2843 6.11386 6.78414C6.61402 6.28398 7.29238 6.00299 7.99971 6.00299ZM7.99971 7.00299C7.5576 7.00299 7.13359 7.17862 6.82096 7.49125C6.50834 7.80387 6.33271 8.22788 6.33271 8.66999C6.33271 9.11211 6.50834 9.53612 6.82096 9.84874C7.13359 10.1614 7.5576 10.337 7.99971 10.337C8.44183 10.337 8.86584 10.1614 9.17846 9.84874C9.49108 9.53612 9.66671 9.11211 9.66671 8.66999C9.66671 8.22788 9.49108 7.80387 9.17846 7.49125C8.86584 7.17862 8.44183 7.00299 7.99971 7.00299ZM7.99971 3.66699C11.0757 3.66699 13.7297 5.76699 14.4667 8.70999C14.4843 8.77426 14.4889 8.84139 14.4802 8.90746C14.4715 8.97352 14.4497 9.03718 14.4161 9.0947C14.3824 9.15222 14.3376 9.20243 14.2843 9.24238C14.231 9.28233 14.1702 9.31122 14.1055 9.32735C14.0409 9.34348 13.9737 9.34653 13.9078 9.33631C13.842 9.32609 13.7788 9.30281 13.7221 9.26784C13.6654 9.23287 13.6162 9.18691 13.5775 9.13267C13.5388 9.07843 13.5113 9.017 13.4967 8.95199C13.1873 7.72827 12.4784 6.64278 11.4823 5.8675C10.4862 5.09222 9.25989 4.67148 7.99765 4.67194C6.73541 4.6724 5.50942 5.09403 4.51389 5.87003C3.51837 6.64604 2.81025 7.73204 2.50171 8.95599C2.46872 9.08379 2.38654 9.19337 2.27309 9.26081C2.15963 9.32826 2.02411 9.34812 1.89608 9.31604C1.76804 9.28397 1.65789 9.20257 1.58963 9.0896C1.52137 8.97663 1.50055 8.84125 1.53171 8.71299C1.89341 7.27145 2.72627 5.99203 3.89808 5.07785C5.06988 4.16366 6.51349 3.6671 7.99971 3.66699Z" fill="black"/>
+                                        </svg>
+                                        0
+                                        </span>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-200 h-[20rem] rounded-[5px] flex flex-col">
+                        <div class="w-full max-h-full relative h-[50%]">
+                            <img src="https://imgholder.ru/300x300/8493a8/adb9ca&text=IMAGE+HOLDER&font=kelson" alt="" class="fullscreen-img">
+                        </div>
+                        <div class="w-full h-[50%] p-4 flex justify-between flex-col">
+                            <div class="flex justify-between gap-4">
+                                <span class="font-bold">Текст новости</span>
+                                <span>16.11.2023</span>
+                            </div>
+                            <div class="overflow-hidden">
+                                <span>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi tempora ad dolore eligendi optio sed repudiandae
+                                </span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <button class="flex gap-2 text-[#E31E24] hover:font-bold hover:gap-4 duration-150 moreBtn_holding">
+                                    Подробнее
+                                    <span class="rotate-45 duration-150">
+                                        <svg width="25" height="25" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_201_23)">
+                                            <path d="M27.6604 15.61L18.0004 6L8.34045 15.61C8.22647 15.6968 8.13248 15.8071 8.06483 15.9333C7.99717 16.0596 7.95744 16.1989 7.94832 16.3419C7.9392 16.4849 7.9609 16.6281 8.01196 16.762C8.06301 16.8958 8.14223 17.0172 8.24425 17.1177C8.34627 17.2183 8.46871 17.2958 8.60327 17.3449C8.73784 17.3941 8.88139 17.4137 9.02421 17.4025C9.16703 17.3914 9.30579 17.3497 9.43109 17.2802C9.55638 17.2108 9.66529 17.1152 9.75045 17L17.0004 9.81V28.94C17.0004 29.2052 17.1058 29.4596 17.2933 29.6471C17.4809 29.8346 17.7352 29.94 18.0004 29.94C18.2657 29.94 18.52 29.8346 18.7076 29.6471C18.8951 29.4596 19.0004 29.2052 19.0004 28.94V9.81L26.2504 17C26.4388 17.187 26.6936 17.2915 26.959 17.2906C27.2243 17.2896 27.4785 17.1833 27.6654 16.995C27.8524 16.8067 27.9569 16.5518 27.956 16.2865C27.9551 16.0211 27.8488 15.767 27.6604 15.58V15.61Z" fill="#E31E24"/>
+                                            </g>
+                                            <defs>
+                                            <clipPath id="clip0_201_23">
+                                            <rect width="36" height="36" fill="#E31E24"/>
+                                            </clipPath>
+                                            </defs>
+                                            </svg>
+                                    </span>
+                                </button>
+                                <div>
+                                    <span class="flex gap-2 items-center">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.99971 6.00299C8.34995 6.00299 8.69675 6.07198 9.02033 6.20601C9.3439 6.34003 9.63791 6.53648 9.88557 6.78414C10.1332 7.03179 10.3297 7.3258 10.4637 7.64938C10.5977 7.97295 10.6667 8.31976 10.6667 8.66999C10.6667 9.02023 10.5977 9.36703 10.4637 9.69061C10.3297 10.0142 10.1332 10.3082 9.88557 10.5558C9.63791 10.8035 9.3439 10.9999 9.02033 11.134C8.69675 11.268 8.34995 11.337 7.99971 11.337C7.29238 11.337 6.61402 11.056 6.11386 10.5558C5.6137 10.0557 5.33271 9.37732 5.33271 8.66999C5.33271 7.96266 5.6137 7.2843 6.11386 6.78414C6.61402 6.28398 7.29238 6.00299 7.99971 6.00299ZM7.99971 7.00299C7.5576 7.00299 7.13359 7.17862 6.82096 7.49125C6.50834 7.80387 6.33271 8.22788 6.33271 8.66999C6.33271 9.11211 6.50834 9.53612 6.82096 9.84874C7.13359 10.1614 7.5576 10.337 7.99971 10.337C8.44183 10.337 8.86584 10.1614 9.17846 9.84874C9.49108 9.53612 9.66671 9.11211 9.66671 8.66999C9.66671 8.22788 9.49108 7.80387 9.17846 7.49125C8.86584 7.17862 8.44183 7.00299 7.99971 7.00299ZM7.99971 3.66699C11.0757 3.66699 13.7297 5.76699 14.4667 8.70999C14.4843 8.77426 14.4889 8.84139 14.4802 8.90746C14.4715 8.97352 14.4497 9.03718 14.4161 9.0947C14.3824 9.15222 14.3376 9.20243 14.2843 9.24238C14.231 9.28233 14.1702 9.31122 14.1055 9.32735C14.0409 9.34348 13.9737 9.34653 13.9078 9.33631C13.842 9.32609 13.7788 9.30281 13.7221 9.26784C13.6654 9.23287 13.6162 9.18691 13.5775 9.13267C13.5388 9.07843 13.5113 9.017 13.4967 8.95199C13.1873 7.72827 12.4784 6.64278 11.4823 5.8675C10.4862 5.09222 9.25989 4.67148 7.99765 4.67194C6.73541 4.6724 5.50942 5.09403 4.51389 5.87003C3.51837 6.64604 2.81025 7.73204 2.50171 8.95599C2.46872 9.08379 2.38654 9.19337 2.27309 9.26081C2.15963 9.32826 2.02411 9.34812 1.89608 9.31604C1.76804 9.28397 1.65789 9.20257 1.58963 9.0896C1.52137 8.97663 1.50055 8.84125 1.53171 8.71299C1.89341 7.27145 2.72627 5.99203 3.89808 5.07785C5.06988 4.16366 6.51349 3.6671 7.99971 3.66699Z" fill="black"/>
+                                        </svg>
+                                        0
+                                        </span>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-200 h-[20rem] rounded-[5px] flex flex-col">
+                        <div class="w-full max-h-full relative h-[50%]">
+                            <img src="https://imgholder.ru/300x300/8493a8/adb9ca&text=IMAGE+HOLDER&font=kelson" alt="" class="fullscreen-img">
+                        </div>
+                        <div class="w-full h-[50%] p-4 flex justify-between flex-col">
+                            <div class="flex justify-between gap-4">
+                                <span class="font-bold">Текст новости</span>
+                                <span>16.11.2023</span>
+                            </div>
+                            <div class="overflow-hidden">
+                                <span>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi tempora ad dolore eligendi optio sed repudiandae
+                                </span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <button class="flex gap-2 text-[#E31E24] hover:font-bold hover:gap-4 duration-150 moreBtn_holding">
+                                    Подробнее
+                                    <span class="rotate-45 duration-150">
+                                        <svg width="25" height="25" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_201_23)">
+                                            <path d="M27.6604 15.61L18.0004 6L8.34045 15.61C8.22647 15.6968 8.13248 15.8071 8.06483 15.9333C7.99717 16.0596 7.95744 16.1989 7.94832 16.3419C7.9392 16.4849 7.9609 16.6281 8.01196 16.762C8.06301 16.8958 8.14223 17.0172 8.24425 17.1177C8.34627 17.2183 8.46871 17.2958 8.60327 17.3449C8.73784 17.3941 8.88139 17.4137 9.02421 17.4025C9.16703 17.3914 9.30579 17.3497 9.43109 17.2802C9.55638 17.2108 9.66529 17.1152 9.75045 17L17.0004 9.81V28.94C17.0004 29.2052 17.1058 29.4596 17.2933 29.6471C17.4809 29.8346 17.7352 29.94 18.0004 29.94C18.2657 29.94 18.52 29.8346 18.7076 29.6471C18.8951 29.4596 19.0004 29.2052 19.0004 28.94V9.81L26.2504 17C26.4388 17.187 26.6936 17.2915 26.959 17.2906C27.2243 17.2896 27.4785 17.1833 27.6654 16.995C27.8524 16.8067 27.9569 16.5518 27.956 16.2865C27.9551 16.0211 27.8488 15.767 27.6604 15.58V15.61Z" fill="#E31E24"/>
+                                            </g>
+                                            <defs>
+                                            <clipPath id="clip0_201_23">
+                                            <rect width="36" height="36" fill="#E31E24"/>
+                                            </clipPath>
+                                            </defs>
+                                            </svg>
+                                    </span>
+                                </button>
+                                <div>
+                                    <span class="flex gap-2 items-center">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.99971 6.00299C8.34995 6.00299 8.69675 6.07198 9.02033 6.20601C9.3439 6.34003 9.63791 6.53648 9.88557 6.78414C10.1332 7.03179 10.3297 7.3258 10.4637 7.64938C10.5977 7.97295 10.6667 8.31976 10.6667 8.66999C10.6667 9.02023 10.5977 9.36703 10.4637 9.69061C10.3297 10.0142 10.1332 10.3082 9.88557 10.5558C9.63791 10.8035 9.3439 10.9999 9.02033 11.134C8.69675 11.268 8.34995 11.337 7.99971 11.337C7.29238 11.337 6.61402 11.056 6.11386 10.5558C5.6137 10.0557 5.33271 9.37732 5.33271 8.66999C5.33271 7.96266 5.6137 7.2843 6.11386 6.78414C6.61402 6.28398 7.29238 6.00299 7.99971 6.00299ZM7.99971 7.00299C7.5576 7.00299 7.13359 7.17862 6.82096 7.49125C6.50834 7.80387 6.33271 8.22788 6.33271 8.66999C6.33271 9.11211 6.50834 9.53612 6.82096 9.84874C7.13359 10.1614 7.5576 10.337 7.99971 10.337C8.44183 10.337 8.86584 10.1614 9.17846 9.84874C9.49108 9.53612 9.66671 9.11211 9.66671 8.66999C9.66671 8.22788 9.49108 7.80387 9.17846 7.49125C8.86584 7.17862 8.44183 7.00299 7.99971 7.00299ZM7.99971 3.66699C11.0757 3.66699 13.7297 5.76699 14.4667 8.70999C14.4843 8.77426 14.4889 8.84139 14.4802 8.90746C14.4715 8.97352 14.4497 9.03718 14.4161 9.0947C14.3824 9.15222 14.3376 9.20243 14.2843 9.24238C14.231 9.28233 14.1702 9.31122 14.1055 9.32735C14.0409 9.34348 13.9737 9.34653 13.9078 9.33631C13.842 9.32609 13.7788 9.30281 13.7221 9.26784C13.6654 9.23287 13.6162 9.18691 13.5775 9.13267C13.5388 9.07843 13.5113 9.017 13.4967 8.95199C13.1873 7.72827 12.4784 6.64278 11.4823 5.8675C10.4862 5.09222 9.25989 4.67148 7.99765 4.67194C6.73541 4.6724 5.50942 5.09403 4.51389 5.87003C3.51837 6.64604 2.81025 7.73204 2.50171 8.95599C2.46872 9.08379 2.38654 9.19337 2.27309 9.26081C2.15963 9.32826 2.02411 9.34812 1.89608 9.31604C1.76804 9.28397 1.65789 9.20257 1.58963 9.0896C1.52137 8.97663 1.50055 8.84125 1.53171 8.71299C1.89341 7.27145 2.72627 5.99203 3.89808 5.07785C5.06988 4.16366 6.51349 3.6671 7.99971 3.66699Z" fill="black"/>
+                                        </svg>
+                                        0
+                                        </span>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-200 h-[20rem] rounded-[5px] flex flex-col">
+                        <div class="w-full max-h-full relative h-[50%]">
+                            <img src="https://imgholder.ru/300x300/8493a8/adb9ca&text=IMAGE+HOLDER&font=kelson" alt="" class="fullscreen-img">
+                        </div>
+                        <div class="w-full h-[50%] p-4 flex justify-between flex-col">
+                            <div class="flex justify-between gap-4">
+                                <span class="font-bold">Текст новости</span>
+                                <span>16.11.2023</span>
+                            </div>
+                            <div class="overflow-hidden">
+                                <span>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae excepturi tempora ad dolore eligendi optio sed repudiandae
+                                </span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <button class="flex gap-2 text-[#E31E24] hover:font-bold hover:gap-4 duration-150 moreBtn_holding">
+                                    Подробнее
+                                    <span class="rotate-45 duration-150">
+                                        <svg width="25" height="25" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_201_23)">
+                                            <path d="M27.6604 15.61L18.0004 6L8.34045 15.61C8.22647 15.6968 8.13248 15.8071 8.06483 15.9333C7.99717 16.0596 7.95744 16.1989 7.94832 16.3419C7.9392 16.4849 7.9609 16.6281 8.01196 16.762C8.06301 16.8958 8.14223 17.0172 8.24425 17.1177C8.34627 17.2183 8.46871 17.2958 8.60327 17.3449C8.73784 17.3941 8.88139 17.4137 9.02421 17.4025C9.16703 17.3914 9.30579 17.3497 9.43109 17.2802C9.55638 17.2108 9.66529 17.1152 9.75045 17L17.0004 9.81V28.94C17.0004 29.2052 17.1058 29.4596 17.2933 29.6471C17.4809 29.8346 17.7352 29.94 18.0004 29.94C18.2657 29.94 18.52 29.8346 18.7076 29.6471C18.8951 29.4596 19.0004 29.2052 19.0004 28.94V9.81L26.2504 17C26.4388 17.187 26.6936 17.2915 26.959 17.2906C27.2243 17.2896 27.4785 17.1833 27.6654 16.995C27.8524 16.8067 27.9569 16.5518 27.956 16.2865C27.9551 16.0211 27.8488 15.767 27.6604 15.58V15.61Z" fill="#E31E24"/>
+                                            </g>
+                                            <defs>
+                                            <clipPath id="clip0_201_23">
+                                            <rect width="36" height="36" fill="#E31E24"/>
+                                            </clipPath>
+                                            </defs>
+                                            </svg>
+                                    </span>
+                                </button>
+                                <div>
+                                    <span class="flex gap-2 items-center">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.99971 6.00299C8.34995 6.00299 8.69675 6.07198 9.02033 6.20601C9.3439 6.34003 9.63791 6.53648 9.88557 6.78414C10.1332 7.03179 10.3297 7.3258 10.4637 7.64938C10.5977 7.97295 10.6667 8.31976 10.6667 8.66999C10.6667 9.02023 10.5977 9.36703 10.4637 9.69061C10.3297 10.0142 10.1332 10.3082 9.88557 10.5558C9.63791 10.8035 9.3439 10.9999 9.02033 11.134C8.69675 11.268 8.34995 11.337 7.99971 11.337C7.29238 11.337 6.61402 11.056 6.11386 10.5558C5.6137 10.0557 5.33271 9.37732 5.33271 8.66999C5.33271 7.96266 5.6137 7.2843 6.11386 6.78414C6.61402 6.28398 7.29238 6.00299 7.99971 6.00299ZM7.99971 7.00299C7.5576 7.00299 7.13359 7.17862 6.82096 7.49125C6.50834 7.80387 6.33271 8.22788 6.33271 8.66999C6.33271 9.11211 6.50834 9.53612 6.82096 9.84874C7.13359 10.1614 7.5576 10.337 7.99971 10.337C8.44183 10.337 8.86584 10.1614 9.17846 9.84874C9.49108 9.53612 9.66671 9.11211 9.66671 8.66999C9.66671 8.22788 9.49108 7.80387 9.17846 7.49125C8.86584 7.17862 8.44183 7.00299 7.99971 7.00299ZM7.99971 3.66699C11.0757 3.66699 13.7297 5.76699 14.4667 8.70999C14.4843 8.77426 14.4889 8.84139 14.4802 8.90746C14.4715 8.97352 14.4497 9.03718 14.4161 9.0947C14.3824 9.15222 14.3376 9.20243 14.2843 9.24238C14.231 9.28233 14.1702 9.31122 14.1055 9.32735C14.0409 9.34348 13.9737 9.34653 13.9078 9.33631C13.842 9.32609 13.7788 9.30281 13.7221 9.26784C13.6654 9.23287 13.6162 9.18691 13.5775 9.13267C13.5388 9.07843 13.5113 9.017 13.4967 8.95199C13.1873 7.72827 12.4784 6.64278 11.4823 5.8675C10.4862 5.09222 9.25989 4.67148 7.99765 4.67194C6.73541 4.6724 5.50942 5.09403 4.51389 5.87003C3.51837 6.64604 2.81025 7.73204 2.50171 8.95599C2.46872 9.08379 2.38654 9.19337 2.27309 9.26081C2.15963 9.32826 2.02411 9.34812 1.89608 9.31604C1.76804 9.28397 1.65789 9.20257 1.58963 9.0896C1.52137 8.97663 1.50055 8.84125 1.53171 8.71299C1.89341 7.27145 2.72627 5.99203 3.89808 5.07785C5.06988 4.16366 6.51349 3.6671 7.99971 3.66699Z" fill="black"/>
+                                        </svg>
+                                        0
+                                        </span>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Повторите для остальных 7 новостей -->
+                </div>
+                <div class="flex items-center justify-center">                                <button class="flex gap-2 text-[#E31E24] hover:font-bold hover:gap-4 duration-150 moreBtn_holding">
+                    Все новости
+                    <span class="rotate-45 duration-150">
+                        <svg width="25" height="25" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_201_23)">
+                            <path d="M27.6604 15.61L18.0004 6L8.34045 15.61C8.22647 15.6968 8.13248 15.8071 8.06483 15.9333C7.99717 16.0596 7.95744 16.1989 7.94832 16.3419C7.9392 16.4849 7.9609 16.6281 8.01196 16.762C8.06301 16.8958 8.14223 17.0172 8.24425 17.1177C8.34627 17.2183 8.46871 17.2958 8.60327 17.3449C8.73784 17.3941 8.88139 17.4137 9.02421 17.4025C9.16703 17.3914 9.30579 17.3497 9.43109 17.2802C9.55638 17.2108 9.66529 17.1152 9.75045 17L17.0004 9.81V28.94C17.0004 29.2052 17.1058 29.4596 17.2933 29.6471C17.4809 29.8346 17.7352 29.94 18.0004 29.94C18.2657 29.94 18.52 29.8346 18.7076 29.6471C18.8951 29.4596 19.0004 29.2052 19.0004 28.94V9.81L26.2504 17C26.4388 17.187 26.6936 17.2915 26.959 17.2906C27.2243 17.2896 27.4785 17.1833 27.6654 16.995C27.8524 16.8067 27.9569 16.5518 27.956 16.2865C27.9551 16.0211 27.8488 15.767 27.6604 15.58V15.61Z" fill="#E31E24"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_201_23">
+                            <rect width="36" height="36" fill="#E31E24"/>
+                            </clipPath>
+                            </defs>
+                            </svg>
+                    </span>
+                </button></div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="p-6 pb-6 sm:pb-6 sm:pt-6 sm:p-8 md:pb-6 md:pt-6 md:p-12 lg:pt-6 lg:pb-6 lg:p-16 xl:pt-6 xl:pb-6 xl:p-18 2xl:pt-6 2xl:pb-6 2xl:p-24 bg-[#191D28] border-t-[1px] border-[#E31E24]">
+            <div class="flex flex-col gap-12">
+            <div class="flex justify-between items-center">
+                <div>
+                    <a href="#"><img src="./img/logo.png" alt="Logo" class="h-[3rem] mr-8"></a>
+                </div>
+                <div class="socialContainer flex items-center gap-3">
+                    <div class="flex gap-3">
+                        <img src="/img/footer_image_2.webp" alt="" class="w-[25px] h-[45px]">
+                        <img src="/img/footer_image_3.webp" alt="" class="w-[45px] h-[45px]">
+                    </div>
+                    <a class="socialContainer_item w-[45px] h-[45px] border-[1px] border-[#fff] rounded-full flex items-center justify-center cursor-pointer duration-150"> 
+                        <span>
+                            <svg width="18" height="18" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.0276 0.0012304C11.7573 -0.00156983 12.4871 0.00576429 13.2166 0.0232305L13.4106 0.0302304C13.6346 0.0382304 13.8556 0.0482304 14.1226 0.0602304C15.1866 0.11023 15.9126 0.278231 16.5496 0.525231C17.2096 0.779231 17.7656 1.12323 18.3216 1.67923C18.83 2.17884 19.2234 2.78318 19.4746 3.45023C19.7216 4.08723 19.8896 4.81423 19.9396 5.87823C19.9516 6.14423 19.9616 6.36623 19.9696 6.59023L19.9756 6.78423C19.9934 7.51342 20.001 8.24283 19.9986 8.97223L19.9996 9.71823V11.0282C20.0021 11.758 19.9944 12.4877 19.9766 13.2172L19.9706 13.4112C19.9626 13.6352 19.9526 13.8562 19.9406 14.1232C19.8906 15.1872 19.7206 15.9132 19.4746 16.5502C19.2242 17.218 18.8307 17.8228 18.3216 18.3222C17.8216 18.8306 17.2169 19.224 16.5496 19.4752C15.9126 19.7222 15.1866 19.8902 14.1226 19.9402C13.8556 19.9522 13.6346 19.9622 13.4106 19.9702L13.2166 19.9762C12.4871 19.994 11.7573 20.0017 11.0276 19.9992L10.2816 20.0002H8.9726C8.24286 20.0027 7.51313 19.995 6.7836 19.9772L6.5896 19.9712C6.35221 19.9626 6.11487 19.9526 5.8776 19.9412C4.8136 19.8912 4.0876 19.7212 3.4496 19.4752C2.78228 19.2246 2.17784 18.8311 1.6786 18.3222C1.16965 17.8225 0.775825 17.2178 0.524601 16.5502C0.277601 15.9132 0.1096 15.1872 0.0596004 14.1232C0.0484633 13.8859 0.0384632 13.6486 0.0296004 13.4112L0.0246005 13.2172C0.00616412 12.4877 -0.00217011 11.758 -0.000399562 11.0282V8.97223C-0.00319053 8.24283 0.00414359 7.51343 0.0216005 6.78423L0.0286005 6.59023C0.0366005 6.36623 0.0466005 6.14423 0.0586005 5.87823C0.1086 4.81323 0.2766 4.08823 0.5236 3.45023C0.774973 2.78285 1.16956 2.17868 1.6796 1.68023C2.17849 1.17098 2.78256 0.776803 3.4496 0.525231C4.0876 0.278231 4.8126 0.11023 5.8776 0.0602304L6.5896 0.0302304L6.7836 0.0252306C7.51278 0.00680338 8.24219 -0.00153085 8.9716 0.000230468L11.0276 0.0012304ZM9.9996 5.00123C9.33711 4.99186 8.67936 5.11425 8.06458 5.3613C7.4498 5.60834 6.89025 5.97511 6.41845 6.44029C5.94664 6.90546 5.572 7.45977 5.31629 8.07099C5.06057 8.68222 4.92889 9.33817 4.92889 10.0007C4.92889 10.6633 5.06057 11.3192 5.31629 11.9305C5.572 12.5417 5.94664 13.096 6.41845 13.5612C6.89025 14.0264 7.4498 14.3931 8.06458 14.6402C8.67936 14.8872 9.33711 15.0096 9.9996 15.0002C11.3257 15.0002 12.5975 14.4734 13.5351 13.5358C14.4728 12.5981 14.9996 11.3263 14.9996 10.0002C14.9996 8.67415 14.4728 7.40238 13.5351 6.4647C12.5975 5.52701 11.3257 5.00123 9.9996 5.00123ZM9.9996 7.00123C10.3981 6.99389 10.7941 7.06603 11.1644 7.21344C11.5347 7.36085 11.8719 7.58057 12.1564 7.85978C12.4408 8.13898 12.6668 8.47206 12.821 8.83957C12.9753 9.20708 13.0548 9.60165 13.0549 10.0002C13.0549 10.3988 12.9756 10.7934 12.8214 11.1609C12.6673 11.5285 12.4414 11.8617 12.1571 12.141C11.8727 12.4203 11.5356 12.6401 11.1653 12.7876C10.7951 12.9352 10.3991 13.0074 10.0006 13.0002C9.20495 13.0002 8.44189 12.6842 7.87928 12.1216C7.31667 11.5589 7.0006 10.7959 7.0006 10.0002C7.0006 9.20458 7.31667 8.44152 7.87928 7.87891C8.44189 7.3163 9.20495 7.00023 10.0006 7.00023L9.9996 7.00123ZM15.2496 3.50123C14.927 3.51414 14.6219 3.65138 14.3982 3.8842C14.1745 4.11702 14.0496 4.42736 14.0496 4.75023C14.0496 5.0731 14.1745 5.38344 14.3982 5.61626C14.6219 5.84908 14.927 5.98632 15.2496 5.99923C15.5811 5.99923 15.8991 5.86753 16.1335 5.63311C16.3679 5.39869 16.4996 5.08075 16.4996 4.74923C16.4996 4.41771 16.3679 4.09977 16.1335 3.86535C15.8991 3.63093 15.5811 3.49923 15.2496 3.49923V3.50123Z"/>
+                            </svg>                            
+                        </span>
+                    </a>
+                    <a class="socialContainer_item w-[45px] h-[45px] border-[1px] border-[#fff] rounded-full flex items-center justify-center cursor-pointer duration-150">
+                        <span>
+                            <svg width="18" height="18" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 10C20 4.48 15.52 0 10 0C4.48 0 0 4.48 0 10C0 14.84 3.44 18.87 8 19.8V13H6V10H8V7.5C8 5.57 9.57 4 11.5 4H14V7H12C11.45 7 11 7.45 11 8V10H14V13H11V19.95C16.05 19.45 20 15.19 20 10Z"/>
+                                </svg>
+                                                         
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="w-[100%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-6">
+                <div class="flex flex-col gap-2">
+                    <div><a href="/about" class="font-bold text-2xl text-[#fff] duration-150 cursor-pointer hover:text-[#E31E24] active">О компании</a></div>
+                    <div><a href="/about/animal" class="text-[#fff] text-sm duration-150 cursor-pointer hover:text-[#E31E24]">Животноводство</a></div>
+                    <div><a href="/about/crop" class="text-[#fff] text-sm duration-150 cursor-pointer hover:text-[#E31E24]">Полеводство</a></div>
+                    <div><a href="/about/feed" class="text-[#fff] text-sm duration-150 cursor-pointer hover:text-[#E31E24] ">Комбикормовый завод</a></div>
+                    <div><a href="/about/meat" class="text-[#fff] text-sm duration-150 cursor-pointer hover:text-[#E31E24]">Мясоперерабатывающий комбинат</a></div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <span class="font-bold text-2xl text-[#fff] ">Продукция</span>
+                    <span class="text-[#fff] text-sm">Варенные колбасы</span>
+                    <span class="text-[#fff] text-sm">Ветчины</span>
+                    <span class="text-[#fff] text-sm">Шашлык</span>
+                    <span class="text-[#fff] text-sm">Восточный мастер</span>
+                    <span class="text-[#fff] text-sm">Деликатесы</span>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <span class="font-bold text-2xl text-[#fff] ">Новости</span>
+                    <span class="text-[#fff] text-sm">Новость 1</span>
+                    <span class="text-[#fff] text-sm">Новость 2</span>
+                    <span class="text-[#fff] text-sm">Новость 3</span>
+                    <span class="text-[#fff] text-sm">Новость 4</span>
+                    <span class="text-[#fff] text-sm">Новость 5</span>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <span class="font-bold text-2xl text-[#fff] ">Дистрибьюторы</span>
+                    <span class="text-[#fff] text-sm">г. Павлодар</span>
+                    <span class="text-[#fff] text-sm">г. Астана</span>
+                    <span class="text-[#fff] text-sm">г. Алматы</span>
+                    <span class="text-[#fff] text-sm">г. Усть-Каменногорск</span>
+                    <span class="text-[#fff] text-sm">г. Караганда</span>
+                </div>
+            </div>
+            <div class="flex items-center border-t-[1px] border-[#242833] justify-between p-4">
+                <div class="text-[#fff] text-sm">
+                    © <script>document.write("1994 - " + new Date().getFullYear())</script> Все права защищены ТОО предприятие «Рубиком»
+                </div>
+            </div>
+        </div>
+        </div>
+    </footer>
 
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js" integrity="sha256-huW7yWl7tNfP7lGk46XE+Sp0nCotjzYodhVKlwaNeco=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="/js/app.js"></script>
 <script>
@@ -424,8 +913,6 @@
             centerPadding: '60px',
             slidesToShow: 3,
             variableWidth: true,
-            autoplay: true,
-            autoplaySpeed: 2000,
             responsive: [
               {
                 breakpoint: 768,
@@ -448,6 +935,35 @@
             ]
           });
       });
+
+      SmoothScroll({
+        // Время скролла 400 = 0.4 секунды
+        animationTime    : 400,
+        // Размер шага в пикселях 
+        stepSize         : 75,
+    
+        // Дополнительные настройки:
+        
+        // Ускорение 
+        accelerationDelta : 30,  
+        // Максимальное ускорение
+        accelerationMax   : 2,   
+    
+        // Поддержка клавиатуры
+        keyboardSupport   : true,  
+        // Шаг скролла стрелками на клавиатуре в пикселях
+        arrowScroll       : 50,
+    
+        // Pulse (less tweakable)
+        // ratio of "tail" to "acceleration"
+        pulseAlgorithm   : true,
+        pulseScale       : 4,
+        pulseNormalize   : 1,
+    
+        // Поддержка тачпада
+        touchpadSupport   : true,
+    })
 </script>
+
 
 </html>

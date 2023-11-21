@@ -1,4 +1,7 @@
 
+body {
+  scroll-behavior: smooth;
+}
 .navMenu .menuPoint {
     color: #fff;
     font-weight: 400;
@@ -6,17 +9,46 @@
 }
 
 .navMenu .menuPoint:hover {
-    color: #fff;
+    color: #E31E24;
 }
 
 .navMenu .active {
-    color: #fff;
-    font-weight: 500;
+    font-weight: 600;
+}
+
+.navMenu .menuPointPage {
+  font-weight: 400;
+  transition: 0.3s all;
+}
+
+.navMenu .menuPointPage:hover {
+  color: #E31E24;
+}
+
+.navMenu .menuPointPage.active {
+  font-weight: 600;
 }
 
 .navMenu .menuPoint.active .chevron::before,
 .navMenu .menuPoint.active .chevron::after {
     background-color: #fff;
+}
+
+.navMenuPage {
+  transition: 0.3s all;
+  cursor: pointer;
+  border-bottom: 1px solid transparent; /* Явно указываем прозрачную границу */
+}
+
+.navMenuPage.active {
+  font-weight: 700;
+  border-bottom: 1px solid #E31E24;
+  background: linear-gradient(180deg, rgba(227, 30, 36, 0.00) 0%, rgba(227, 30, 36, 0.08) 100%);
+}
+
+.navMenuPage:hover {
+  border-bottom: 1px solid #E31E24;
+  background: linear-gradient(180deg, rgba(227, 30, 36, 0.00) 0%, rgba(227, 30, 36, 0.08) 100%);
 }
 
 .navMenu .menuPoint .chevron {
@@ -98,7 +130,8 @@
     width: 50px;
     text-align: center;
     line-height: 50px;
-    border-radius: 50%;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3 );
     font-size: 20px;
     cursor: pointer;
     /*color: #fff;*/
@@ -210,18 +243,41 @@
       
       .socialContainer_item span svg{
         fill: white;
+        transition: 0.3s all;
       }
 
       .socialContainer_item:hover {
         border: 1px solid #E31E24;
       }
 
+      .socialContainer_item:hover span svg {
+        fill: #E31E24;
+      }
+
       .mainPage-slick .slick-slide {
         margin: 0 15px; /* Добавляем пространство между слайдами */
         box-sizing: border-box;
         text-align: center; /* Выравнивание текста по центру для всех слайдов */
+
       }
-    
+
+      .navMenu .menuPointChevron .secondLevel {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 150%;
+        background: #F4F6F8;
+      }
+
+      .navMenu .menuPointChevron:hover .secondLevel {
+        display: flex;
+      }
+
+      .navMenu .menuPointChevron {
+        position: relative;
+      }
+      
       /* Стили для адаптивности слайдов */
       @media (max-width: 768px) {
         .mainPage-slick .slick-slide {
@@ -273,3 +329,6 @@
         border-radius: 15px;
       }
 
+footer .active {
+  color: #E31E24;
+}
