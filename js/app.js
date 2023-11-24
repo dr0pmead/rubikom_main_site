@@ -108,12 +108,12 @@
       // Проверка, находимся ли мы на странице /about.html
       if (window.location.pathname === '/about.html') {
         if (window.scrollY > scrollThreshold) {
-          desktopMenuPage.classList.add('bg-[#fff]', 'backdrop-blur', 'shadow-lg', 'h-[7.5rem]');
-          desktopMenuPage.classList.remove('h-[9rem]');
+          desktopMenuPage.classList.add('bg-[#fff]', 'backdrop-blur', 'shadow-lg', 'h-[5rem]');
+          desktopMenuPage.classList.remove('h-[8rem]');
 
         } else {
-          desktopMenuPage.classList.add('h-[9rem]');
-          desktopMenuPage.classList.remove('bg-[#fff]', 'backdrop-blur', 'shadow-lg', 'h-[7.5rem]');
+          desktopMenuPage.classList.add('h-[8rem]');
+          desktopMenuPage.classList.remove('bg-[#fff]', 'backdrop-blur', 'shadow-lg', 'h-[5rem]');
 
         }
       }
@@ -122,68 +122,34 @@
     // Добавление обработчика событий прокрутки
     window.addEventListener('scroll', toggleDesktopMenuPageBackground);
 
-    const navMenuPages = selector('.navMenuPage', true);
+// Функция для обновления класса active и сохранения в localStorage
+const updateActiveClass = target => {
+  const navMenuPages = selector('.navMenuPage', true);
+  navMenuPages.forEach(page => {
+    page.classList.remove('active');
+  });
+  target.classList.add('active');
 
-    const updateActiveClass = target => {
-      navMenuPages.forEach(page => {
-        page.classList.remove('active');
-      });
-      target.classList.add('active');
-    };
-    
-    let clickedNav = false; // Состояние, отслеживающее, был ли совершен клик по навигационной кнопке
+  // Сохранение выбранного элемента в localStorage
+  localStorage.setItem('activeNav', target.getAttribute('href'));
+};
 
-    navMenuPages.forEach(page => {
-      page.addEventListener('click', (event) => {
-        event.preventDefault();
-        clickedNav = true; // Установка состояния при клике
-        updateActiveClass(page);
-        const section = document.querySelector(page.getAttribute('href'));
-        if (section) {
-          section.scrollIntoView({ behavior: 'smooth' });
-          // Сброс состояния через некоторое время после завершения анимации прокрутки
-          setTimeout(() => { clickedNav = false; }, 1000);
-        }
-      });
-    });
-    
-    const checkSectionVisibility = () => {
-      let maxVisibleSection = null;
-      let maxVisibility = 0;
+// Установка обработчиков событий на каждый элемент навигации
+ready(() => {
+  const navMenuPages = selector('.navMenuPage', true);
+  navMenuPages.forEach(page => {
+    on(page, 'click', () => updateActiveClass(page));
+  });
 
-      if (clickedNav) {
-        // Если был клик, не обновляем класс active при прокрутке
-        return;
-      }
+  // Восстановление активного класса при загрузке страницы
+  const activeNav = localStorage.getItem('activeNav');
+  if (activeNav) {
+    const activePage = selector(`.navMenuPage[href="${activeNav}"]`);
+    if (activePage) {
+      updateActiveClass(activePage);
+    }
+  }
+});
     
-      navMenuPages.forEach(page => {
-        const section = document.querySelector(page.getAttribute('href'));
-        if (section) {
-          const bounding = section.getBoundingClientRect();
-    
-          // Вычисляем процент видимости секции
-          const visibleHeight = Math.min(bounding.bottom, window.innerHeight) - Math.max(bounding.top, 0);
-          const totalHeight = bounding.bottom - bounding.top;
-          const visibility = Math.max(0, visibleHeight) / totalHeight;
-    
-          // Обновляем максимально видимую секцию
-          if (visibility > maxVisibility && visibility > 0.2) { // 20% видимости
-            maxVisibleSection = page;
-            maxVisibility = visibility;
-          }
-        }
-      });
-    
-      // Обновляем класс active, если найдена максимально видимая секция
-      if (maxVisibleSection) {
-        updateActiveClass(maxVisibleSection);
-      } else {
-        navMenuPages.forEach(page => {
-          page.classList.remove('active');
-        });
-      }
-    };
-    
-    window.addEventListener('scroll', checkSectionVisibility);
 
   })();
