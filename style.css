@@ -1,6 +1,7 @@
 
 body {
   scroll-behavior: smooth;
+  color: #1c1c1e;
 }
 .navMenu .menuPoint {
     color: #fff;
@@ -60,6 +61,14 @@ body {
     display: inline-block;
     position: relative;
     cursor: pointer; /* Для указания на интерактивность элемента */
+}
+
+.img-carousel-about > .slick-list {
+  height: 100% !important;
+}
+
+.img-carousel-about > .slick-list > .slick-track {
+  height: 100% !important;
 }
 
 .navMenu .menuPoint .chevron::before,
@@ -182,9 +191,6 @@ body {
   #active:checked + .menu-btn:after {
       transform: rotate(-45deg);
     border-color: #1c1c1e;
-  }
-  input[type="checkbox"]{
-    display: none;
   }
   .content{
     position: absolute;
@@ -334,4 +340,47 @@ body {
 
 footer .active {
   color: #E31E24;
+}
+
+.history-carousel .slick-center.history-card {
+  transform: scale(1); /* Увеличить центральный слайд */
+  opacity: 1; /* Полная видимость для центрального слайда */
+  transition: transform 0.3s ease-in-out; /* Анимация изменения размера */
+}
+
+.history-carousel .history-card {
+  opacity: 0.5; /* Уменьшенная видимость для остальных слайдов */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease; /* Анимация прозрачности и размера */
+  transform: scale(0.9);
+}
+
+.footerNavMenu {
+  border-left: none;
+  transition: 0.3s all;
+}
+
+.footerNavMenu.active {
+  border-left: 3px solid #E31E24;
+}
+
+.footerNavMenu.active .footerNavMenu-point {
+  transform: translateX(1rem);
+  color: #fff;
+}
+
+.footerNavMenu:hover {
+  border-left: 3px solid #E31E24;
+}
+
+.footerNavMenu:hover .footerNavMenu-point {
+  transform: translateX(1rem);
+}
+
+.footerNavMenu .footerNavMenu-point {
+  display: flex;
+  transition: 0.3s all;
+}
+
+.social-service_footer svg {
+fill: #fff;
 }

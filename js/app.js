@@ -121,35 +121,33 @@
 
     // Добавление обработчика событий прокрутки
     window.addEventListener('scroll', toggleDesktopMenuPageBackground);
-
-// Функция для обновления класса active и сохранения в localStorage
-const updateActiveClass = target => {
-  const navMenuPages = selector('.navMenuPage', true);
-  navMenuPages.forEach(page => {
-    page.classList.remove('active');
-  });
-  target.classList.add('active');
-
-  // Сохранение выбранного элемента в localStorage
-  localStorage.setItem('activeNav', target.getAttribute('href'));
-};
-
-// Установка обработчиков событий на каждый элемент навигации
-ready(() => {
-  const navMenuPages = selector('.navMenuPage', true);
-  navMenuPages.forEach(page => {
-    on(page, 'click', () => updateActiveClass(page));
-  });
-
-  // Восстановление активного класса при загрузке страницы
-  const activeNav = localStorage.getItem('activeNav');
-  if (activeNav) {
-    const activePage = selector(`.navMenuPage[href="${activeNav}"]`);
-    if (activePage) {
-      updateActiveClass(activePage);
-    }
-  }
-});
-    
-
   })();
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Инициализируем Isotope
+    var iso = new Isotope('.container-products', {
+        itemSelector: '.container-products-card',
+        layoutMode: 'fitRows'
+    });
+
+    // Обработчик нажатия на кнопку "Применить фильтр"
+    document.getElementById('apply-filter').addEventListener('click', function() {
+        var filterValue = getFilterValue();
+        console.log()
+        iso.arrange({ filter: filterValue });
+    });
+
+    // Получение значения фильтра
+    function getFilterValue() {
+        var filters = document.querySelectorAll('.filter');
+        var filterValue = '';
+        filters.forEach(function(filter) {
+            if (filter.checked) {
+                filterValue += filter.value;
+            }
+        });
+        console.log(filterValue);
+        return filterValue;
+    }
+    
+});
