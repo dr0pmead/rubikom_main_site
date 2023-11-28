@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Рубиком | Мясная продукция</title>
-    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/checkbox.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -84,12 +83,12 @@
         <div class="px-4 py-8">
             <div class="text-center mb-10">
                 <h1 class="text-4xl font-bold mb-3">Наша продукция</h1>
-                <div class="flex gap-4   justify-center">
-                    <button class="px-4 py-2 border-[1px] border-[#838383] text-black rounded-[5px] hover:bg-[#E31E24] hover:text-white duration-150 hover:border-[#E31E24]">Без свинины</button>
-                    <button class="px-4 py-2 border-[1px] border-[#838383] text-black rounded-[5px] hover:bg-[#E31E24] hover:text-white duration-150 hover:border-[#E31E24]">Без свинины</button>
-                    <button class="px-4 py-2 border-[1px] border-[#838383] text-black rounded-[5px] hover:bg-[#E31E24] hover:text-white duration-150 hover:border-[#E31E24]">Без свинины</button>
-                    <button class="px-4 py-2 border-[1px] border-[#838383] text-black rounded-[5px] hover:bg-[#E31E24] hover:text-white duration-150 hover:border-[#E31E24]">Без свинины</button>
-                    <button class="px-4 py-2 border-[1px] border-[#838383] text-black rounded-[5px] hover:bg-[#E31E24] hover:text-white duration-150 hover:border-[#E31E24]">Без свинины</button>
+                <div class="flex gap-4 smallFilter justify-center">
+                    <button class="relative px-4 py-2 border-[1px] border-[#838383] text-black rounded-[5px] hover:bg-[#E31E24] hover:text-white duration-150 hover:border-[#E31E24] filter" data-value="category3">Без свинины</button>
+                    <button class="relative px-4 py-2 border-[1px] border-[#838383] text-black rounded-[5px] hover:bg-[#E31E24] hover:text-white duration-150 hover:border-[#E31E24] filter" data-value="category4">Без свинины</button>
+                    <button class="relative px-4 py-2 border-[1px] border-[#838383] text-black rounded-[5px] hover:bg-[#E31E24] hover:text-white duration-150 hover:border-[#E31E24] filter" data-value="category5">Без свинины</button>
+                    <button class="relative px-4 py-2 border-[1px] border-[#838383] text-black rounded-[5px] hover:bg-[#E31E24] hover:text-white duration-150 hover:border-[#E31E24] filter" data-value="category6">Без свинины</button>
+                    <button class="relative px-4 py-2 border-[1px] border-[#838383] text-black rounded-[5px] hover:bg-[#E31E24] hover:text-white duration-150 hover:border-[#E31E24] filter" data-value="category7">Без свинины</button>
                 </div>
             </div>
             <div class="flex flex-wrap -mx-4">
@@ -125,15 +124,15 @@
                                     x-transition:leave-end="transform opacity-0 scale-95" >
                                         <label class="inline-flex items-center justify-between mb-2">
                                             <span class="ml-2 text-gray-700 hover:text-red-500">Варёные колбасы</span>
-                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2">
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2 filter" data-value="category1">
                                         </label>
                                         <label class="inline-flex items-center justify-between mb-2">
-                                            <span class="ml-2 text-gray-700 hover:text-red-500">Ветчины</span>
-                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2 filter" value=".vetchina">
+                                            <span class="ml-2 text-gray-700 hover:text-red-500 ">Ветчины</span>
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2 filter" data-value="category2">
                                         </label>
                                         <label class="inline-flex items-center justify-between mb-2">
                                             <span class="ml-2 text-gray-700 hover:text-red-500">Восточный мастер</span>
-                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2 filter" value=".vostok-master">
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2">
                                         </label>
                                         <label class="inline-flex items-center justify-between mb-2">
                                             <span class="ml-2 text-gray-700 hover:text-red-500">Деликатесы</span>
@@ -229,9 +228,10 @@
 
                         </div>
                     </div>
-                    <div>
+                    <div class="flex flex-col gap-2">
                         <!-- Кнопка применения фильтров -->
-                        <button class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600 transition duration-150" id="apply-filter">Применить фильтр</button>
+                        <button class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600 transition duration-150" id="apply-filters">Применить фильтр</button>
+                        <button class="w-full text-[#1c1c1e]/50 rounded text-sm transition duration-150 underline-offset-4 underline" id="reset-filters">Сбросить фильтр</button>
                     </div>
                     </div>
                 </div>
@@ -240,65 +240,23 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 container-products">
                         <!-- Элементы продукции -->
                         <!-- Замените # с ссылками на изображения продукции -->
-                        <div class="bg-white p-6 shadow rounded container-products-card vetchina">
+                        <div class="bg-white p-6 shadow rounded container-products-card vetchina" data-value="category1,category2">
                             <img src="/img/products.jpg" alt="Название продукта" class="w-full mb-4">
-                            <h3 class="text-lg font-bold mb-1">«Русская» ГОСТ</h3>
+                            <h3 class="text-lg font-bold mb-1">category1,category2</h3>
                             <p class="text-gray-700 mb-3">Колбаса изготовлена по ГОСТу из высококачественного мяса (свинина, говядина).</p>
                             <button class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600 transition duration-150">Подробнее</button>
                             <!-- Кнопка или ссылка для детального просмотра -->
                         </div>
-                        <div class="bg-white p-6 shadow rounded container-products-card vostok-master">
+                        <div class="bg-white p-6 shadow rounded container-products-card vostok-master" data-value="category1">
                             <img src="/img/products.jpg" alt="Название продукта" class="w-full mb-4">
-                            <h3 class="text-lg font-bold mb-1">«Русская» ГОСТ</h3>
+                            <h3 class="text-lg font-bold mb-1">category1</h3>
                             <p class="text-gray-700 mb-3">Колбаса изготовлена по ГОСТу из высококачественного мяса (свинина, говядина).</p>
                             <button class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600 transition duration-150">Подробнее</button>
                             <!-- Кнопка или ссылка для детального просмотра -->
                         </div>
-                        <div class="bg-white p-6 shadow rounded container-products-card vetchina">
-                            <img src="/img/products.jpg" alt="Название продукта" class="w-full mb-4">
-                            <h3 class="text-lg font-bold mb-1">«Русская» ГОСТ</h3>
-                            <p class="text-gray-700 mb-3">Колбаса изготовлена по ГОСТу из высококачественного мяса (свинина, говядина).</p>
-                            <button class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600 transition duration-150">Подробнее</button>
-                            <!-- Кнопка или ссылка для детального просмотра -->
-                        </div>
-                        <div class="bg-white p-6 shadow rounded container-products-card ">
-                            <img src="/img/products.jpg" alt="Название продукта" class="w-full mb-4">
-                            <h3 class="text-lg font-bold mb-1">«Русская» ГОСТ</h3>
-                            <p class="text-gray-700 mb-3">Колбаса изготовлена по ГОСТу из высококачественного мяса (свинина, говядина).</p>
-                            <button class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600 transition duration-150">Подробнее</button>
-                            <!-- Кнопка или ссылка для детального просмотра -->
-                        </div>
-                        <div class="bg-white p-6 shadow rounded container-products-card ">
-                            <img src="/img/products.jpg" alt="Название продукта" class="w-full mb-4">
-                            <h3 class="text-lg font-bold mb-1">«Русская» ГОСТ</h3>
-                            <p class="text-gray-700 mb-3">Колбаса изготовлена по ГОСТу из высококачественного мяса (свинина, говядина).</p>
-                            <button class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600 transition duration-150">Подробнее</button>
-                            <!-- Кнопка или ссылка для детального просмотра -->
-                        </div>
-                        <div class="bg-white p-6 shadow rounded container-products-card ">
-                            <img src="/img/products.jpg" alt="Название продукта" class="w-full mb-4">
-                            <h3 class="text-lg font-bold mb-1">«Русская» ГОСТ</h3>
-                            <p class="text-gray-700 mb-3">Колбаса изготовлена по ГОСТу из высококачественного мяса (свинина, говядина).</p>
-                            <button class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600 transition duration-150">Подробнее</button>
-                            <!-- Кнопка или ссылка для детального просмотра -->
-                        </div>
-                        <div class="bg-white p-6 shadow rounded container-products-card ">
-                            <img src="/img/products.jpg" alt="Название продукта" class="w-full mb-4">
-                            <h3 class="text-lg font-bold mb-1">«Русская» ГОСТ</h3>
-                            <p class="text-gray-700 mb-3">Колбаса изготовлена по ГОСТу из высококачественного мяса (свинина, говядина).</p>
-                            <button class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600 transition duration-150">Подробнее</button>
-                            <!-- Кнопка или ссылка для детального просмотра -->
-                        </div>
-                        <div class="bg-white p-6 shadow rounded container-products-card ">
-                            <img src="/img/products.jpg" alt="Название продукта" class="w-full mb-4">
-                            <h3 class="text-lg font-bold mb-1">«Русская» ГОСТ</h3>
-                            <p class="text-gray-700 mb-3">Колбаса изготовлена по ГОСТу из высококачественного мяса (свинина, говядина).</p>
-                            <button class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600 transition duration-150">Подробнее</button>
-                            <!-- Кнопка или ссылка для детального просмотра -->
-                        </div>
-                        <div class="bg-white p-6 shadow rounded container-products-card ">
-                            <img src="/img/products.jpg" alt="Название продукта" class="w-full mb-4">
-                            <h3 class="text-lg font-bold mb-1">«Русская» ГОСТ</h3>
+                        <div class="bg-white p-6 shadow rounded container-products-card vetchina" data-value="category3">
+                            <img src="/img/products.jpg" alt="Название продукта" class="w-full mb-4" >
+                            <h3 class="text-lg font-bold mb-1">Частые фильтры</h3>
                             <p class="text-gray-700 mb-3">Колбаса изготовлена по ГОСТу из высококачественного мяса (свинина, говядина).</p>
                             <button class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600 transition duration-150">Подробнее</button>
                             <!-- Кнопка или ссылка для детального просмотра -->

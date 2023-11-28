@@ -123,31 +123,112 @@
     window.addEventListener('scroll', toggleDesktopMenuPageBackground);
   })();
 
+
   document.addEventListener('DOMContentLoaded', function() {
-    // Инициализируем Isotope
-    var iso = new Isotope('.container-products', {
-        itemSelector: '.container-products-card',
-        layoutMode: 'fitRows'
+    var selectedValues = [];
+
+    var filterButtons = document.querySelectorAll('.smallFilter .filter');
+    var activeFilters = [];
+
+    filterButtons.forEach(function(filterButton) {
+        filterButton.addEventListener('click', function() {
+            var filterValue = this.getAttribute('data-value');
+            this.classList.toggle('active');
+            updateActiveFilters(filterValue, this.classList.contains('active'));
+            applyFilters();
+            addOrRemoveResetButton(this);
+        });
     });
 
-    // Обработчик нажатия на кнопку "Применить фильтр"
-    document.getElementById('apply-filter').addEventListener('click', function() {
-        var filterValue = getFilterValue();
-        console.log()
-        iso.arrange({ filter: filterValue });
-    });
+    function updateActiveFilters(filterValue, isActive) {
+        if (isActive) {
+            if (!activeFilters.includes(filterValue)) {
+                activeFilters.push(filterValue);
+            }
+        } else {
+            activeFilters = activeFilters.filter(function(value) {
+                return value !== filterValue;
+            });
+        }
+    }
 
-    // Получение значения фильтра
-    function getFilterValue() {
-        var filters = document.querySelectorAll('.filter');
-        var filterValue = '';
-        filters.forEach(function(filter) {
-            if (filter.checked) {
-                filterValue += filter.value;
+    function applyFilters() {
+        var productCards = document.querySelectorAll('.container-products .container-products-card');
+        productCards.forEach(function(card) {
+            var cardValue = card.getAttribute('data-value');
+            var isMatch = activeFilters.length === 0 || activeFilters.some(function(filter) {
+                return cardValue && cardValue.split(',').includes(filter);
+            });
+            card.style.display = isMatch ? '' : 'none';
+        });
+    }
+
+    function addOrRemoveResetButton(button) {
+        var existingResetButton = button.querySelector('.reset-filter');
+        if (button.classList.contains('active')) {
+            if (!existingResetButton) {
+                var resetButton = document.createElement('span');
+                resetButton.classList.add('reset-filter');
+                resetButton.innerHTML = '&#10005;'; // Символ крестика
+                resetButton.onclick = function() {
+                    button.click(); // Имитируем клик по кнопке фильтра для ее сброса
+                };
+                button.appendChild(resetButton);
+            }
+        } else if (existingResetButton) {
+            existingResetButton.remove();
+        }
+    }
+
+
+    // Обработчик для чекбоксов
+    document.querySelectorAll('.filter').forEach(function(filterCheckbox) {
+        filterCheckbox.addEventListener('change', function() {
+            var value = this.getAttribute('data-value');
+            if (this.checked) {
+                selectedValues.push(value);
+            } else {
+                selectedValues = selectedValues.filter(function(item) {
+                    return item !== value;
+                });
             }
         });
-        console.log(filterValue);
-        return filterValue;
-    }
+    });
+
+    // Обработчик для кнопки "Применить фильтры"
+    document.getElementById('apply-filters').addEventListener('click', function() {
+        var productCards = document.querySelectorAll('.container-products .container-products-card');
     
+        productCards.forEach(function(card) {
+            if (selectedValues.length === 0) {
+                // Если selectedValues пуст, отобразить все элементы
+                card.style.display = '';
+            } else {
+                var valueAttribute = card.getAttribute('data-value');
+                if (valueAttribute) {
+                    var values = valueAttribute.split(',');
+                    var isMatch = selectedValues.some(function(selectedValue) {
+                        return values.includes(selectedValue);
+                    });
+    
+                    card.style.display = isMatch ? '' : 'none';
+                } else {
+                    card.style.display = 'none';
+                }
+            }
+        });
+    
+        console.log('Примененные фильтры:', selectedValues);
+    });
+
+    // Обработчик для кнопки "Сбросить фильтр"
+    document.getElementById('reset-filters').addEventListener('click', function() {
+        selectedValues = [];
+        document.querySelectorAll('.filter').forEach(function(filterCheckbox) {
+            filterCheckbox.checked = false;
+        });
+        // Опционально: сбросить фильтры и перезагрузить содержимое
+        console.log('Фильтры сброшены');
+        // location.reload(); // Раскомментируйте для перезагрузки страницы
+    });
 });

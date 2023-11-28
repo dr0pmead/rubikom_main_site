@@ -3,6 +3,10 @@ body {
   scroll-behavior: smooth;
   color: #1c1c1e;
 }
+
+header input[type=checkbox] {
+    display: none;
+}
 .navMenu .menuPoint {
     color: #fff;
     font-weight: 400;
@@ -383,4 +387,26 @@ footer .active {
 
 .social-service_footer svg {
 fill: #fff;
+}
+
+.smallFilter button.active {
+    background-color: #E31E24;
+    border: 1px solid #E31E24;
+    color: #fff;
+}
+
+.reset-filter {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    display: inline-block;
+    margin-left: 8px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #E31E24; /* или другой цвет */
+    color: white;
 }
