@@ -106,7 +106,7 @@
       const scrollThreshold = 10; // Пороговое значение скролла
     
       // Проверка, находимся ли мы на странице /about.html
-      if (window.location.pathname === '/about.html') {
+      if (window.location.pathname !== '/' && (window.location.pathname === '/about.html' || window.location.pathname === '/products.html' || window.location.pathname === '/distribution.html' || window.location.pathname === '/news.html')) {
         if (window.scrollY > scrollThreshold) {
           desktopMenuPage.classList.add('bg-[#fff]', 'backdrop-blur', 'shadow-lg', 'h-[5rem]');
           desktopMenuPage.classList.remove('h-[8rem]');
@@ -125,34 +125,54 @@
 
 
   document.addEventListener('DOMContentLoaded', function() {
+
+    document.querySelectorAll('a[data-value]').forEach(function(link) {
+      link.addEventListener('click', function(event) {
+          event.preventDefault(); // Предотвратить стандартное поведение ссылки
+          var categoryValue = this.getAttribute('data-value');
+          localStorage.setItem('selectedCategory', categoryValue);
+          window.location.href = 'products.html';
+      });
+  });
+
+    if (window.location.pathname === '/products.html') {
     var selectedValues = [];
 
     var filterButtons = document.querySelectorAll('.smallFilter .filter');
     var activeFilters = [];
 
+
+
     filterButtons.forEach(function(filterButton) {
-        filterButton.addEventListener('click', function() {
+        filterButton.addEventListener('click', function(event) {
+            if (event.target.classList.contains('reset-filter')) {
+                return;
+            }
+          
             var filterValue = this.getAttribute('data-value');
             this.classList.toggle('active');
-            updateActiveFilters(filterValue, this.classList.contains('active'));
+            toggleFilter(filterValue, this.classList.contains('active'));
             applyFilters();
-            addOrRemoveResetButton(this);
         });
     });
 
-    function updateActiveFilters(filterValue, isActive) {
+    function toggleFilter(filterValue, isActive) {
+        var index = activeFilters.indexOf(filterValue);
         if (isActive) {
-            if (!activeFilters.includes(filterValue)) {
+            if (index === -1) {
                 activeFilters.push(filterValue);
             }
         } else {
-            activeFilters = activeFilters.filter(function(value) {
-                return value !== filterValue;
-            });
+            if (index !== -1) {
+                activeFilters.splice(index, 1);
+            }
         }
+        console.log("Активные фильтры после обновления:", activeFilters);
+        addOrRemoveResetButton(filterValue, isActive);
     }
 
     function applyFilters() {
+        console.log("Применение фильтров:", activeFilters);
         var productCards = document.querySelectorAll('.container-products .container-products-card');
         productCards.forEach(function(card) {
             var cardValue = card.getAttribute('data-value');
@@ -163,15 +183,40 @@
         });
     }
 
-    function addOrRemoveResetButton(button) {
+    var selectedCategory = localStorage.getItem('selectedCategory');
+    if (selectedCategory) {
+        // Добавляем значение фильтра в активные фильтры
+        activeFilters.push(selectedCategory);
+        applyFilters();
+
+        // Ищем и активируем соответствующий чекбокс
+        var categoryFilters = document.querySelectorAll('.category_filter .filter');
+        categoryFilters.forEach(function(filter) {
+            if (filter.getAttribute('data-value') === selectedCategory) {
+                // Активируем чекбокс или другой элемент фильтра
+                filter.checked = checked; // для чекбоксов
+                // или filter.classList.add('active'); // для других типов элементов
+            }
+        });
+
+        // Очищаем значение из localStorage
+        localStorage.removeItem('selectedCategory');
+    }
+
+    function addOrRemoveResetButton(filterValue, isActive) {
+        var button = Array.from(filterButtons).find(btn => btn.getAttribute('data-filter') === filterValue);
+        if (!button) return;
+
         var existingResetButton = button.querySelector('.reset-filter');
-        if (button.classList.contains('active')) {
+        if (isActive) {
             if (!existingResetButton) {
                 var resetButton = document.createElement('span');
                 resetButton.classList.add('reset-filter');
-                resetButton.innerHTML = '&#10005;'; // Символ крестика
-                resetButton.onclick = function() {
-                    button.click(); // Имитируем клик по кнопке фильтра для ее сброса
+                resetButton.innerHTML = '&#10005;';
+                resetButton.onclick = function(event) {
+                    event.stopPropagation();
+                    toggleFilter(filterValue, false);
+                    applyFilters();
                 };
                 button.appendChild(resetButton);
             }
@@ -180,55 +225,88 @@
         }
     }
 
+    let modalFilterMobile = document.querySelector('#openModalMobile');
+    let desktopFilter = document.querySelector('.desktopFilter');
+    let activeFilter;
+
+    if (modalFilterMobile.classList.contains('lg:hidden')) {
+        activeFilter = desktopFilter;
+    } else {
+        activeFilter = modalFilterMobile;
+    }
+    console.log(activeFilter)
+
+    activeFilter.querySelectorAll('.filter').forEach(function(filterCheckbox) {
+      filterCheckbox.addEventListener('change', function() {
+          var value = this.getAttribute('data-value');
+          if (this.checked) {
+              selectedValues.push(value);
+          } else {
+              selectedValues = selectedValues.filter(function(item) {
+                  return item !== value;
+              });
+          }
+      });
+  });
 
     // Обработчик для чекбоксов
-    document.querySelectorAll('.filter').forEach(function(filterCheckbox) {
-        filterCheckbox.addEventListener('change', function() {
-            var value = this.getAttribute('data-value');
-            if (this.checked) {
-                selectedValues.push(value);
-            } else {
-                selectedValues = selectedValues.filter(function(item) {
-                    return item !== value;
-                });
-            }
-        });
-    });
+    activeFilter.querySelector('#apply-filters').addEventListener('click', function() {
+      var allFilters = combineFilters(activeFilters, selectedValues);
+      applyCombinedFilters(allFilters);
+      console.log('Примененные фильтры:', allFilters);
+  });
 
-    // Обработчик для кнопки "Применить фильтры"
-    document.getElementById('apply-filters').addEventListener('click', function() {
-        var productCards = document.querySelectorAll('.container-products .container-products-card');
-    
-        productCards.forEach(function(card) {
-            if (selectedValues.length === 0) {
-                // Если selectedValues пуст, отобразить все элементы
-                card.style.display = '';
-            } else {
-                var valueAttribute = card.getAttribute('data-value');
-                if (valueAttribute) {
-                    var values = valueAttribute.split(',');
-                    var isMatch = selectedValues.some(function(selectedValue) {
-                        return values.includes(selectedValue);
-                    });
-    
-                    card.style.display = isMatch ? '' : 'none';
-                } else {
-                    card.style.display = 'none';
-                }
-            }
-        });
-    
-        console.log('Примененные фильтры:', selectedValues);
-    });
+  function combineFilters(activeFilters, selectedValues) {
+      // Возвращаем объединение двух массивов без дубликатов
+      return [...new Set([...activeFilters, ...selectedValues])];
+  }
+  
 
-    // Обработчик для кнопки "Сбросить фильтр"
-    document.getElementById('reset-filters').addEventListener('click', function() {
-        selectedValues = [];
-        document.querySelectorAll('.filter').forEach(function(filterCheckbox) {
-            filterCheckbox.checked = false;
+  function applyCombinedFilters(filters) {
+    var productCards = document.querySelectorAll('.container-products .container-products-card');
+    productCards.forEach(function(card) {
+        var cardValue = card.getAttribute('data-value');
+        var isMatch = filters.length === 0 || filters.some(function(filter) {
+            return cardValue && cardValue.split(',').includes(filter);
         });
-        // Опционально: сбросить фильтры и перезагрузить содержимое
-        console.log('Фильтры сброшены');
-        // location.reload(); // Раскомментируйте для перезагрузки страницы
+        card.style.display = isMatch ? '' : 'none';
     });
+}
+
+     // Обработчик для кнопки "Сбросить фильтр"
+     activeFilter.querySelector('#reset-filters').addEventListener('click', function() {
+      selectedValues = [];
+      activeFilters = []; // Также сбрасываем активные фильтры
+      activeFilter.querySelectorAll('.filter').forEach(function(filterCheckbox) {
+          filterCheckbox.checked = false;
+      });
+  
+      applyCombinedFilters([]); // Применяем сброс фильтров сразу
+  
+      console.log('Фильтры сброшены');
+  });
+}
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var currentUrl = window.location.href;
+  var footerNavMenuPoints = document.querySelectorAll('.footerNavMenu-point');
+  var menuPointPage = document.querySelectorAll('.menuPointPage');
+
+  menuPointPage.forEach(function(menuPoint) {
+    var href = menuPoint.getAttribute('href');
+
+    if (currentUrl.includes(href)) {
+        menuPoint.classList.add('active');
+    }
+});
+
+  footerNavMenuPoints.forEach(function(menuPoint) {
+      var href = menuPoint.getAttribute('href');
+
+      if (currentUrl.includes(href)) {
+          var parent = menuPoint.parentElement;
+          parent.classList.add('active');
+      }
+  });
 });

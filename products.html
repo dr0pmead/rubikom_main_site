@@ -12,6 +12,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/simplebar@latest/dist/simplebar.css"
+    />
+    <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
 </head>
 <body class="font-[Montserrat] bg-[#F4F6F8]">
     <div id="preloader"
@@ -28,13 +33,13 @@
 
         <nav class="navMenu">
           <ul class="flex lg:space-x-4 lg:gap-4 gap-4 sm:gap-2 duration-150">
-            <li class="menuPointChevron"><a href="/" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 p-2">Главная </a>
+            <li><a href="/index.html" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 p-2">Главная </a>
             </li>
-            <li><a href="/about.html" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 p-2 ">О компании</a></li>
-            <li><a href="/products.html" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 p-2 active">Продукция </a></li>
-            <li><a href="#" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 p-2">Новости</a></li>
-            <li><a href="#" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 p-2">Дистрибьюторы</a></li>
-            
+            <li><a href="/about.html" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 p-2">О компании</a></li>
+            <li><a href="/products.html" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 p-2">Продукция </a></li>
+            <li><a href="/news.html" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 p-2">Новости</a></li>
+            <li><a href="/distribution.html" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 p-2">Дистрибьюторы</a></li>
+            <li><a href="/contacts.html" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 p-2">Контакты</a></li>
           </ul>
         </nav>
 
@@ -81,25 +86,57 @@
   <section>
     <div class="p-6 mt-20 px-6 sm:mt-16 md:mt-18 lg:mt-20 xl:mt-24 sm:px-8 md:px-10 lg:px-12 xl:px-14 2xl:px-16 gap-6 flex flex-col">
         <div class="px-4 py-8">
-            <div class="text-center mb-10">
-                <h1 class="text-4xl font-bold mb-3">Наша продукция</h1>
-                <div class="flex gap-4 smallFilter justify-center">
+            <div class="text-center mb-10 flex flex-row lg:flex-col lg:justify-center justify-between items-center relative h-full">
+                <h1 class="text-xl sm:text-2xl md:text-4xl font-bold mb-0 md:mb-3">Наша продукция</h1>
+                <div class="flex gap-4 smallFilter justify-center lg:flex hidden">
                     <button class="relative px-4 py-2 border-[1px] border-[#838383] text-black rounded-[5px] hover:bg-[#E31E24] hover:text-white duration-150 hover:border-[#E31E24] filter" data-value="category3">Без свинины</button>
                     <button class="relative px-4 py-2 border-[1px] border-[#838383] text-black rounded-[5px] hover:bg-[#E31E24] hover:text-white duration-150 hover:border-[#E31E24] filter" data-value="category4">Без свинины</button>
                     <button class="relative px-4 py-2 border-[1px] border-[#838383] text-black rounded-[5px] hover:bg-[#E31E24] hover:text-white duration-150 hover:border-[#E31E24] filter" data-value="category5">Без свинины</button>
                     <button class="relative px-4 py-2 border-[1px] border-[#838383] text-black rounded-[5px] hover:bg-[#E31E24] hover:text-white duration-150 hover:border-[#E31E24] filter" data-value="category6">Без свинины</button>
                     <button class="relative px-4 py-2 border-[1px] border-[#838383] text-black rounded-[5px] hover:bg-[#E31E24] hover:text-white duration-150 hover:border-[#E31E24] filter" data-value="category7">Без свинины</button>
                 </div>
-            </div>
-            <div class="flex flex-wrap -mx-4">
-                <!-- Фильтр -->
-                <div class="w-full lg:w-1/4 px-4 mb-6 lg:mb-0">
-                    <div class="bg-white p-6 shadow rounded min-h-[40rem] flex flex-col justify-between">
-                        <div>
-                        <h2 class="text-xl font-bold mb-4">Фильтры</h2>
-                        <!-- Категории продуктов с выпадающим списком и чекбоксами -->
+                <div x-data="{ showModal: false }">
+                <button id="openModalMobile" class="flex h-[45px] w-[45px] bg-main shadow-md rounded-[5px] justify-center items-center lg:hidden" @click="showModal = true" >
+                    <svg fill="#f2f2f7" width="20" height="22" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.0011 9V16.88C10.0411 17.18 9.94111 17.5 9.71111 17.71C9.61859 17.8027 9.5087 17.8763 9.38773 17.9264C9.26676 17.9766 9.13708 18.0024 9.00611 18.0024C8.87514 18.0024 8.74546 17.9766 8.62448 17.9264C8.50351 17.8763 8.39362 17.8027 8.30111 17.71L6.29111 15.7C6.18204 15.5934 6.09911 15.463 6.04881 15.319C5.9985 15.175 5.98217 15.0213 6.00111 14.87V9H5.97111L0.211108 1.62C0.0487158 1.41153 -0.0245586 1.14726 0.00729555 0.88493C0.0391497 0.622602 0.173543 0.383546 0.381108 0.22C0.571108 0.08 0.781108 0 1.00111 0H15.0011C15.2211 0 15.4311 0.08 15.6211 0.22C15.8287 0.383546 15.9631 0.622602 15.9949 0.88493C16.0268 1.14726 15.9535 1.41153 15.7911 1.62L10.0311 9H10.0011Z"/>
+                    </svg>                        
+                </button>
+                <div 
+                class="modalFilterMobile absolute top-[4rem] right-0 w-full max-w-[21rem] min-h-full bg-white rounded-md p-4 flex flex-col gap-3 z-[999]" 
+                x-show="showModal"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 transform scale-90"
+                x-transition:enter-end="opacity-100 transform scale-100"
+                x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="opacity-100 transform scale-100"
+                x-transition:leave-end="opacity-0 transform scale-90"
+                style="display: none;"
+                >
+                    <div class="flex flex-col">
+                        <div class="flex justify-between items-center">
+                            <h2 class="text-xl font-bold">Фильтры</h2>
+                            <button @click="showModal = false" class="w-[25px] h-[25px] rounded-[5px]  text-black">
+                                X
+                            </button>
+                        </div>
+                    
+                        <div style="
+                        position: absolute;
+                        top: -0.9rem;
+                        right: -10px;
+                        border-left: 1rem solid transparent;
+                        border-right: 1rem solid transparent;
+                        border-bottom: 1rem solid white;
+                        transform: translateX(-50%);
+                        width: 0;
+                        height: 0;
+                        border-radius: 5px;
+                    "></div>
+
+                    
+                        <!-- Категории фильтра -->
                         <div class="mb-4">
-                            <div x-data="{ open: false }" class="duration-150">
+                            <div x-data="{ open: false }" class="duration-150" >
                                 <button @click="open = !open" class="flex justify-between items-center w-full text-gray-700 hover:text-red-500 font-semibold py-2 transition duration-150 ease-in-out">
                                     <span>Категории</span>
                                     <svg :class="{'rotate-180': open}" class="h-4 w-4 transform transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -113,9 +150,9 @@
                                 x-transition:leave="transition ease-in duration-300" 
                                 x-transition:leave-start="transform opacity-100 scale-100" 
                                 x-transition:leave-end="transform opacity-0 scale-95" 
-                                class="mt-2 overflow-hidden duration-150">
+                                class="mt-2 overflow-hidden duration-150 category_filter">
                                     <!-- Перечислите категории с чекбоксами -->
-                                    <div class="flex flex-col max-h-[100px] overflow-y-scroll" 
+                                    <div data-simplebar class="flex flex-col max-h-[100px]" 
                                     x-transition:enter="transition ease-out duration-300" 
                                     x-transition:enter-start="transform opacity-0 scale-95" 
                                     x-transition:enter-end="transform opacity-100 scale-100" 
@@ -124,43 +161,192 @@
                                     x-transition:leave-end="transform opacity-0 scale-95" >
                                         <label class="inline-flex items-center justify-between mb-2">
                                             <span class="ml-2 text-gray-700 hover:text-red-500">Варёные колбасы</span>
-                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2 filter" data-value="category1">
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3 filter" data-value="category1">
                                         </label>
                                         <label class="inline-flex items-center justify-between mb-2">
                                             <span class="ml-2 text-gray-700 hover:text-red-500 ">Ветчины</span>
-                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2 filter" data-value="category2">
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3 filter" data-value="category2">
                                         </label>
                                         <label class="inline-flex items-center justify-between mb-2">
                                             <span class="ml-2 text-gray-700 hover:text-red-500">Восточный мастер</span>
-                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2">
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
                                         </label>
                                         <label class="inline-flex items-center justify-between mb-2">
                                             <span class="ml-2 text-gray-700 hover:text-red-500">Деликатесы</span>
-                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2">
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
                                         </label>
                                         <label class="inline-flex items-center justify-between mb-2">
                                             <span class="ml-2 text-gray-700 hover:text-red-500">Замороженные полуфабрикаты</span>
-                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2">
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
                                         </label>
                                         <label class="inline-flex items-center justify-between mb-2">
                                             <span class="ml-2 text-gray-700 hover:text-red-500">Колбаски для жарки</span>
-                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2">
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
                                         </label>
                                         <label class="inline-flex items-center justify-between mb-2">
                                             <span class="ml-2 text-gray-700 hover:text-red-500">Серия бутербродыч</span>
-                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2">
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
                                         </label>
                                         <label class="inline-flex items-center justify-between mb-2">
                                             <span class="ml-2 text-gray-700 hover:text-red-500">Шашлык</span>
-                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2">
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
                                         </label>
                                         <label class="inline-flex items-center justify-between mb-2">
                                             <span class="ml-2 text-gray-700 hover:text-red-500">Полукопченые колбаски</span>
-                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2">
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
                                         </label>
                                         <label class="inline-flex items-center justify-between mb-2">
                                             <span class="ml-2 text-gray-700 hover:text-red-500">Сосиски</span>
-                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2">
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
+                                        </label>
+                                        <!-- Повторите для каждой категории -->
+                                        <!-- ... -->
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div x-data="{ open: false }" class="duration-150">
+                                <button @click="open = !open" class="flex justify-between items-center w-full text-gray-700 hover:text-red-500 font-semibold py-2 transition duration-150 ease-in-out">
+                                    <span>Состав продукции</span>
+                                    <svg :class="{'rotate-180': open}" class="h-4 w-4 transform transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                                <div x-show="open" 
+                                x-transition:enter="transition ease-out duration-300" 
+                                x-transition:enter-start="transform opacity-0 scale-95" 
+                                x-transition:enter-end="transform opacity-100 scale-100" 
+                                x-transition:leave="transition ease-in duration-300" 
+                                x-transition:leave-start="transform opacity-100 scale-100" 
+                                x-transition:leave-end="transform opacity-0 scale-95" 
+                                class="mt-2 overflow-hidden category_filter">
+                                    <!-- Перечислите категории с чекбоксами -->
+                                    <div data-simplebar class="flex flex-col max-h-[100px]" >
+                                        <label class="inline-flex items-center justify-between mb-2">
+                                            <span class="ml-2 text-gray-700 hover:text-red-500">Варёные колбасы</span>
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
+                                        </label>
+                                        <label class="inline-flex items-center justify-between mb-2">
+                                            <span class="ml-2 text-gray-700 hover:text-red-500">Ветчины</span>
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
+                                        </label>
+                                        <label class="inline-flex items-center justify-between mb-2">
+                                            <span class="ml-2 text-gray-700 hover:text-red-500">Восточный мастер</span>
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
+                                        </label>
+                                        <label class="inline-flex items-center justify-between mb-2">
+                                            <span class="ml-2 text-gray-700 hover:text-red-500">Деликатесы</span>
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
+                                        </label>
+                                        <label class="inline-flex items-center justify-between mb-2">
+                                            <span class="ml-2 text-gray-700 hover:text-red-500">Замороженные полуфабрикаты</span>
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
+                                        </label>
+                                        <label class="inline-flex items-center justify-between mb-2">
+                                            <span class="ml-2 text-gray-700 hover:text-red-500">Колбаски для жарки</span>
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
+                                        </label>
+                                        <label class="inline-flex items-center justify-between mb-2">
+                                            <span class="ml-2 text-gray-700 hover:text-red-500">Серия бутербродыч</span>
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
+                                        </label>
+                                        <label class="inline-flex items-center justify-between mb-2">
+                                            <span class="ml-2 text-gray-700 hover:text-red-500">Шашлык</span>
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
+                                        </label>
+                                        <!-- Повторите для каждой категории -->
+                                        <!-- ... -->
+                                    </div>
+                                </div>
+                            </div>
+    
+    
+    
+    
+                        </div>
+                        <!-- Добавьте дополнительные категории по аналогии -->
+                
+                        <!-- Кнопки управления -->
+                        <div class="flex flex-col gap-2">
+                            <!-- Кнопка применения фильтров -->
+                            <button class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600 transition duration-150" id="apply-filters">Применить фильтр</button>
+                            <button class="w-full text-[#1c1c1e]/50 rounded text-sm transition duration-150 underline-offset-4 underline" id="reset-filters">Сбросить фильтр</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="flex flex-wrap -mx-4">
+                <!-- Фильтр -->
+                <div class="w-full lg:w-1/4 px-4 mb-6 lg:mb-0 lg:block hidden desktopFilter">
+                    <div class="bg-white p-6 shadow rounded min-h-[40rem] flex flex-col justify-between">
+                        <div>
+                        <h2 class="text-xl font-bold mb-4">Фильтры</h2>
+                        <!-- Категории продуктов с выпадающим списком и чекбоксами -->
+                        <div class="mb-4">
+                            <div x-data="{ open: false }" class="duration-150" >
+                                <button @click="open = !open" class="flex justify-between items-center w-full text-gray-700 hover:text-red-500 font-semibold py-2 transition duration-150 ease-in-out">
+                                    <span>Категории</span>
+                                    <svg :class="{'rotate-180': open}" class="h-4 w-4 transform transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                                <div x-show="open" 
+                                x-transition:enter="transition ease-out duration-300" 
+                                x-transition:enter-start="transform opacity-0 scale-95" 
+                                x-transition:enter-end="transform opacity-100 scale-100" 
+                                x-transition:leave="transition ease-in duration-300" 
+                                x-transition:leave-start="transform opacity-100 scale-100" 
+                                x-transition:leave-end="transform opacity-0 scale-95" 
+                                class="mt-2 overflow-hidden duration-150 category_filter">
+                                    <!-- Перечислите категории с чекбоксами -->
+                                    <div data-simplebar class="flex flex-col max-h-[100px]" 
+                                    x-transition:enter="transition ease-out duration-300" 
+                                    x-transition:enter-start="transform opacity-0 scale-95" 
+                                    x-transition:enter-end="transform opacity-100 scale-100" 
+                                    x-transition:leave="transition ease-in duration-300" 
+                                    x-transition:leave-start="transform opacity-100 scale-100" 
+                                    x-transition:leave-end="transform opacity-0 scale-95" >
+                                        <label class="inline-flex items-center justify-between mb-2">
+                                            <span class="ml-2 text-gray-700 hover:text-red-500">Варёные колбасы</span>
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3 filter" data-value="category1">
+                                        </label>
+                                        <label class="inline-flex items-center justify-between mb-2">
+                                            <span class="ml-2 text-gray-700 hover:text-red-500 ">Ветчины</span>
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3 filter" data-value="category2">
+                                        </label>
+                                        <label class="inline-flex items-center justify-between mb-2">
+                                            <span class="ml-2 text-gray-700 hover:text-red-500">Восточный мастер</span>
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
+                                        </label>
+                                        <label class="inline-flex items-center justify-between mb-2">
+                                            <span class="ml-2 text-gray-700 hover:text-red-500">Деликатесы</span>
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
+                                        </label>
+                                        <label class="inline-flex items-center justify-between mb-2">
+                                            <span class="ml-2 text-gray-700 hover:text-red-500">Замороженные полуфабрикаты</span>
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
+                                        </label>
+                                        <label class="inline-flex items-center justify-between mb-2">
+                                            <span class="ml-2 text-gray-700 hover:text-red-500">Колбаски для жарки</span>
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
+                                        </label>
+                                        <label class="inline-flex items-center justify-between mb-2">
+                                            <span class="ml-2 text-gray-700 hover:text-red-500">Серия бутербродыч</span>
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
+                                        </label>
+                                        <label class="inline-flex items-center justify-between mb-2">
+                                            <span class="ml-2 text-gray-700 hover:text-red-500">Шашлык</span>
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
+                                        </label>
+                                        <label class="inline-flex items-center justify-between mb-2">
+                                            <span class="ml-2 text-gray-700 hover:text-red-500">Полукопченые колбаски</span>
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
+                                        </label>
+                                        <label class="inline-flex items-center justify-between mb-2">
+                                            <span class="ml-2 text-gray-700 hover:text-red-500">Сосиски</span>
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
                                         </label>
                                         <!-- Повторите для каждой категории -->
                                         <!-- ... -->
@@ -182,40 +368,40 @@
                                 x-transition:leave="transition ease-in duration-300" 
                                 x-transition:leave-start="transform opacity-100 scale-100" 
                                 x-transition:leave-end="transform opacity-0 scale-95" 
-                                class="mt-2 overflow-hidden">
+                                class="mt-2 overflow-hidden category_filter">
                                     <!-- Перечислите категории с чекбоксами -->
-                                    <div class="flex flex-col">
+                                    <div data-simplebar class="flex flex-col max-h-[100px]" >
                                         <label class="inline-flex items-center justify-between mb-2">
                                             <span class="ml-2 text-gray-700 hover:text-red-500">Варёные колбасы</span>
-                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2">
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
                                         </label>
                                         <label class="inline-flex items-center justify-between mb-2">
                                             <span class="ml-2 text-gray-700 hover:text-red-500">Ветчины</span>
-                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2">
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
                                         </label>
                                         <label class="inline-flex items-center justify-between mb-2">
                                             <span class="ml-2 text-gray-700 hover:text-red-500">Восточный мастер</span>
-                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2">
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
                                         </label>
                                         <label class="inline-flex items-center justify-between mb-2">
                                             <span class="ml-2 text-gray-700 hover:text-red-500">Деликатесы</span>
-                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2">
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
                                         </label>
                                         <label class="inline-flex items-center justify-between mb-2">
                                             <span class="ml-2 text-gray-700 hover:text-red-500">Замороженные полуфабрикаты</span>
-                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2">
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
                                         </label>
                                         <label class="inline-flex items-center justify-between mb-2">
                                             <span class="ml-2 text-gray-700 hover:text-red-500">Колбаски для жарки</span>
-                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2">
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
                                         </label>
                                         <label class="inline-flex items-center justify-between mb-2">
                                             <span class="ml-2 text-gray-700 hover:text-red-500">Серия бутербродыч</span>
-                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2">
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
                                         </label>
                                         <label class="inline-flex items-center justify-between mb-2">
                                             <span class="ml-2 text-gray-700 hover:text-red-500">Шашлык</span>
-                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-2">
+                                            <input type="checkbox" class="form-checkbox text-red-500 rounded mr-3">
                                         </label>
                                         <!-- Повторите для каждой категории -->
                                         <!-- ... -->
@@ -237,29 +423,128 @@
                 </div>
                 <!-- Продукция -->
                 <div class="w-full lg:w-3/4 px-4">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 container-products">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 container-products relative">
                         <!-- Элементы продукции -->
-                        <!-- Замените # с ссылками на изображения продукции -->
-                        <div class="bg-white p-6 shadow rounded container-products-card vetchina" data-value="category1,category2">
-                            <img src="/img/products.jpg" alt="Название продукта" class="w-full mb-4">
-                            <h3 class="text-lg font-bold mb-1">category1,category2</h3>
-                            <p class="text-gray-700 mb-3">Колбаса изготовлена по ГОСТу из высококачественного мяса (свинина, говядина).</p>
-                            <button class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600 transition duration-150">Подробнее</button>
-                            <!-- Кнопка или ссылка для детального просмотра -->
+                        <div x-data="{ showModal: false }" class="container-products-card" data-value="category2">
+                        <div class="bg-white p-4 sm:p-6 shadow rounded" >
+                            <div class="absolute top-3 left-3 ">
+                                <svg fill="#cd7f32" width="15" height="11" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.04864 1.80237L5.85364 5.15037L9.24364 0.976366C9.33857 0.859676 9.4586 0.765905 9.59479 0.702037C9.73098 0.638168 9.87983 0.605847 10.0302 0.607481C10.1807 0.609115 10.3288 0.644661 10.4635 0.711474C10.5983 0.778286 10.7163 0.874642 10.8086 0.993366L14.0436 5.14937L17.9716 1.75337C18.1259 1.62028 18.3171 1.53748 18.5197 1.51605C18.7223 1.49462 18.9266 1.53559 19.1053 1.63346C19.284 1.73134 19.4285 1.88146 19.5196 2.06373C19.6106 2.246 19.6438 2.45172 19.6146 2.65337L18.1146 13.0004H1.92164L0.398644 2.70037C0.368392 2.4976 0.401189 2.29044 0.492595 2.10694C0.584 1.92343 0.729597 1.77246 0.909665 1.67445C1.08973 1.57645 1.29557 1.53617 1.4993 1.55904C1.70303 1.58192 1.8948 1.66687 2.04864 1.80237ZM1.99964 14.0004H17.9996V15.0004C17.9996 15.2656 17.8943 15.5199 17.7068 15.7075C17.5192 15.895 17.2649 16.0004 16.9996 16.0004H2.99964C2.73443 16.0004 2.48007 15.895 2.29254 15.7075C2.105 15.5199 1.99964 15.2656 1.99964 15.0004V14.0004Z"/>
+                                </svg>
+                            </div>
+                            <div class="flex flex-col h-full justify-between">
+                                <img src="/img/products.jpg" alt="Название продукта" class="w-full mb-4 rounded">
+                                <div>
+                                    <div class="flex gap-2 items-center">
+                                        <h3 class="text-lg font-bold">
+                                            category1
+                                        </h3>
+                                            
+                                    </div>
+                                    <p class="text-gray-700 mb-4">Колбаса изготовлена по ГОСТу из высококачественного мяса (свинина, говядина).</p>
+                                </div>
+                                <button @click="showModal = true" class="w-full bg-red-500 text-white py-2 rounded hover:bg-red-600 transition duration-150">Подробнее</button>
+                            </div>
                         </div>
-                        <div class="bg-white p-6 shadow rounded container-products-card vostok-master" data-value="category1">
-                            <img src="/img/products.jpg" alt="Название продукта" class="w-full mb-4">
-                            <h3 class="text-lg font-bold mb-1">category1</h3>
-                            <p class="text-gray-700 mb-3">Колбаса изготовлена по ГОСТу из высококачественного мяса (свинина, говядина).</p>
-                            <button class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600 transition duration-150">Подробнее</button>
-                            <!-- Кнопка или ссылка для детального просмотра -->
+
+                            <!-- Модальное окно -->
+                            <div x-show="showModal" 
+                            x-on:click.away="showModal = false" 
+                            x-transition:enter="transition ease-out duration-300 bg-black/30" 
+                            x-transition:enter-start="opacity-0 scale-95 bg-black/0" 
+                            x-transition:enter-end="opacity-100 scale-100 "
+                            x-transition:leave="transition ease-in duration-300"
+                            x-transition:leave-start="opacity-100 scale-100"
+                            x-transition:leave-end="opacity-0 scale-95"
+                            class="z-[999] fixed inset-0 flex items-center justify-center p-4 bg-black/30" >
+                       
+                           <div class="bg-white rounded max-w-md mx-auto flex flex-col items-center gap-2 shadow-lg">
+                               <!-- Картинка -->
+                               <div class="w-full  px-4 pt-4 pb-1 rounded-[15px] min-h-full overflow-hidden">
+                                <img src="/img/catalog_item-1.jpg" alt="Описание картинки" class="w-full h-full object-cover">
+                               </div>
+                               
+                       
+                               <!-- Контейнер с информацией -->
+                               <div class="text-center md:text-left w-full flex justify-between flex-col w-full h-full px-4 pb-4 gap-3">
+                                   <!-- Заголовок -->
+                                   <div class="flex flex-col gap-2">
+                                   <div class="text-xl font-bold md:mt-0 flex justify-between items-center">
+                                    Заголовок
+                                    <svg fill="#cd7f32" width="15" height="11" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.04864 1.80237L5.85364 5.15037L9.24364 0.976366C9.33857 0.859676 9.4586 0.765905 9.59479 0.702037C9.73098 0.638168 9.87983 0.605847 10.0302 0.607481C10.1807 0.609115 10.3288 0.644661 10.4635 0.711474C10.5983 0.778286 10.7163 0.874642 10.8086 0.993366L14.0436 5.14937L17.9716 1.75337C18.1259 1.62028 18.3171 1.53748 18.5197 1.51605C18.7223 1.49462 18.9266 1.53559 19.1053 1.63346C19.284 1.73134 19.4285 1.88146 19.5196 2.06373C19.6106 2.246 19.6438 2.45172 19.6146 2.65337L18.1146 13.0004H1.92164L0.398644 2.70037C0.368392 2.4976 0.401189 2.29044 0.492595 2.10694C0.584 1.92343 0.729597 1.77246 0.909665 1.67445C1.08973 1.57645 1.29557 1.53617 1.4993 1.55904C1.70303 1.58192 1.8948 1.66687 2.04864 1.80237ZM1.99964 14.0004H17.9996V15.0004C17.9996 15.2656 17.8943 15.5199 17.7068 15.7075C17.5192 15.895 17.2649 16.0004 16.9996 16.0004H2.99964C2.73443 16.0004 2.48007 15.895 2.29254 15.7075C2.105 15.5199 1.99964 15.2656 1.99964 15.0004V14.0004Z"/>
+                                    </svg>
+                                </div>
+                       
+                                   <!-- Описание -->
+                                   <p class="mt-2 text-gray-600 text-left">Колбаса изготовлена по ГОСТу из высококачественного мяса (свинина, говядина).</p>
+                                <div class="flex justify-between">
+                                    <div class="">
+                                            Углеводы
+                                    </div>
+                                    <div class="w-full items-center flex px-2">
+                                        <span class="flex w-full h-[1px] border-b-[1px] border-dashed border-[#1c1c1e]/20"></span>
+                                    </div>
+                                    <div class="flex items-end font-bold">
+                                        123
+                                    </div>
+                                </div>
+                                </div>
+                                   <div>
+                                       <button @click="showModal = false" class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600 transition duration-150">
+                                           Закрыть
+                                       </button>
+                                   </div><!-- Кнопка закрыть -->
+                               </div>
+                           </div>
+                       </div>
+
+                        <!-- Изменение стиля body при открытии модального окна -->
+                        <div x-show="showModal" x-effect="document.body.style.overflow = showModal ? 'hidden' : ''"></div>
+
+                    </div>
+
+                        <div class="bg-white p-4 sm:p-6 shadow rounded container-products-card relative" data-value="category2">
+                            <div class="absolute top-3 left-3 ">
+                                <svg fill="#c0c0c0" width="15" height="11" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.04864 1.80237L5.85364 5.15037L9.24364 0.976366C9.33857 0.859676 9.4586 0.765905 9.59479 0.702037C9.73098 0.638168 9.87983 0.605847 10.0302 0.607481C10.1807 0.609115 10.3288 0.644661 10.4635 0.711474C10.5983 0.778286 10.7163 0.874642 10.8086 0.993366L14.0436 5.14937L17.9716 1.75337C18.1259 1.62028 18.3171 1.53748 18.5197 1.51605C18.7223 1.49462 18.9266 1.53559 19.1053 1.63346C19.284 1.73134 19.4285 1.88146 19.5196 2.06373C19.6106 2.246 19.6438 2.45172 19.6146 2.65337L18.1146 13.0004H1.92164L0.398644 2.70037C0.368392 2.4976 0.401189 2.29044 0.492595 2.10694C0.584 1.92343 0.729597 1.77246 0.909665 1.67445C1.08973 1.57645 1.29557 1.53617 1.4993 1.55904C1.70303 1.58192 1.8948 1.66687 2.04864 1.80237ZM1.99964 14.0004H17.9996V15.0004C17.9996 15.2656 17.8943 15.5199 17.7068 15.7075C17.5192 15.895 17.2649 16.0004 16.9996 16.0004H2.99964C2.73443 16.0004 2.48007 15.895 2.29254 15.7075C2.105 15.5199 1.99964 15.2656 1.99964 15.0004V14.0004Z"/>
+                                </svg> 
+                            </div>
+                            <div class="flex flex-col h-full justify-between">
+                                <img src="/img/products.jpg" alt="Название продукта" class="w-full mb-4 rounded">
+                                <div>
+                                    <div class="flex gap-2 items-center">
+                                        <h3 class="text-lg font-bold">
+                                            category1
+                                        </h3>
+                                           
+                                    </div>
+                                    <p class="text-gray-700 mb-4">Колбаса изготовлена по ГОСТу из высококачественного мяса (свинина, говядина).</p>
+                                </div>
+                                <button class="w-full bg-red-500 text-white py-2 rounded hover:bg-red-600 transition duration-150">Подробнее</button>
+                            </div>
                         </div>
-                        <div class="bg-white p-6 shadow rounded container-products-card vetchina" data-value="category3">
-                            <img src="/img/products.jpg" alt="Название продукта" class="w-full mb-4" >
-                            <h3 class="text-lg font-bold mb-1">Частые фильтры</h3>
-                            <p class="text-gray-700 mb-3">Колбаса изготовлена по ГОСТу из высококачественного мяса (свинина, говядина).</p>
-                            <button class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600 transition duration-150">Подробнее</button>
-                            <!-- Кнопка или ссылка для детального просмотра -->
+
+                        <div class="bg-white p-4 sm:p-6 shadow rounded container-products-card relative" data-value="svinina">
+                            <div class="absolute top-3 left-3 ">
+                                <svg fill="#E3B81E" width="15" height="11" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.04864 1.80237L5.85364 5.15037L9.24364 0.976366C9.33857 0.859676 9.4586 0.765905 9.59479 0.702037C9.73098 0.638168 9.87983 0.605847 10.0302 0.607481C10.1807 0.609115 10.3288 0.644661 10.4635 0.711474C10.5983 0.778286 10.7163 0.874642 10.8086 0.993366L14.0436 5.14937L17.9716 1.75337C18.1259 1.62028 18.3171 1.53748 18.5197 1.51605C18.7223 1.49462 18.9266 1.53559 19.1053 1.63346C19.284 1.73134 19.4285 1.88146 19.5196 2.06373C19.6106 2.246 19.6438 2.45172 19.6146 2.65337L18.1146 13.0004H1.92164L0.398644 2.70037C0.368392 2.4976 0.401189 2.29044 0.492595 2.10694C0.584 1.92343 0.729597 1.77246 0.909665 1.67445C1.08973 1.57645 1.29557 1.53617 1.4993 1.55904C1.70303 1.58192 1.8948 1.66687 2.04864 1.80237ZM1.99964 14.0004H17.9996V15.0004C17.9996 15.2656 17.8943 15.5199 17.7068 15.7075C17.5192 15.895 17.2649 16.0004 16.9996 16.0004H2.99964C2.73443 16.0004 2.48007 15.895 2.29254 15.7075C2.105 15.5199 1.99964 15.2656 1.99964 15.0004V14.0004Z"/>
+                                </svg>    
+                            </div>
+                            <div class="flex flex-col h-full justify-between">
+                                <img src="/img/products.jpg" alt="Название продукта" class="w-full mb-4 rounded">
+                                <div>
+                                    <div class="flex gap-2 items-center">
+                                        <h3 class="text-lg font-bold">
+                                            svinina
+                                        </h3>
+                                        
+                                    </div>
+
+                                    <p class="text-gray-700 mb-4">Колбаса изготовлена по ГОСТу из высококачественного мяса (свинина, говядина).</p>
+                                </div>
+                                <button class="w-full bg-red-500 text-white py-2 rounded hover:bg-red-600 transition duration-150">Подробнее</button>
+                            </div>
                         </div>
                         <!-- Повторите для каждого продукта -->
                     </div>
@@ -315,8 +600,8 @@
         <!-- Меню футера -->
         <div class="flex flex-col gap-2">
           <span class="font-bold text-2xl mb-4">Меню</span>
-          <div class="footerNavMenu"><a class="footerNavMenu-point" href="/">Главная</a></div>
-          <div class="footerNavMenu active"><a class="footerNavMenu-point flex" href="/about.html">О компании</a></div>
+          <div class="footerNavMenu"><a class="footerNavMenu-point" href="/index.html">Главная</a></div>
+          <div class="footerNavMenu"><a class="footerNavMenu-point flex" href="/about.html">О компании</a></div>
           <div class="footerNavMenu"><a class="footerNavMenu-point" href="/products.html">Продукция</a></div>
           <div class="footerNavMenu"><a class="footerNavMenu-point" href="/news.html">Новости</a></div>
           <div class="footerNavMenu"><a class="footerNavMenu-point" href="/distribution.html">Дистрибьюторы</a></div>

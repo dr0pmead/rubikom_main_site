@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рубиком | Мясная продукция</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/checkbox.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/simplebar@latest/dist/simplebar.css"
+    />
+    <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+</head>
+<body class="font-[Montserrat] bg-[#F4F6F8]">
+    <div id="preloader"
+      class="fixed inset-0 bg-white z-[9999] flex justify-center items-center transition-opacity opacity-100 duration-1000 overflow-y-scroll">
+      <img src="img/logo.png" alt="Молком" class="w-[30%] sm:w-[25%] md:w-[20%] lg:w-[15%]">
+    </div>
+    
+<header class="desktopMenuPage fixed top-0 left-0 text-white py-4 font-[Montserrat] h-[7rem] items-center z-[999] w-[100%] duration-150 lg:flex hidden">
+    <div class="px-4 sm:px-8 md:px-16 flex justify-between items-center w-[100%]">
+      <!-- Logo and navigation -->
+      <div class="flex items-center justify-between">
+        <!-- Replace with your logo image -->
+        <a href="#"><img src="./img/logo.png" alt="Logo" class="h-[3rem] mr-8"></a>
+
+        <nav class="navMenu">
+          <ul class="flex lg:space-x-4 lg:gap-4 gap-4 sm:gap-2 duration-150">
+            <li><a href="/index.html" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 p-2">Главная </a>
+            </li>
+            <li><a href="/about.html" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 p-2">О компании</a></li>
+            <li><a href="/products.html" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 p-2">Продукция </a></li>
+            <li><a href="/news.html" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 p-2">Новости</a></li>
+            <li><a href="/distribution.html" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 p-2">Дистрибьюторы</a></li>
+            <li><a href="/contacts.html" class="menuPointPage text-[#1c1c1e] sm:text-sm md:text-md 2xl:text-lg flex items-center gap-2 p-2">Контакты</a></li>
+          </ul>
+        </nav>
+
+        
+      </div>
+
+                <!-- Other header content like search or location -->
+
+                </div>
+  </header>
+  <header class="mobileMenu fixed top-0 left-0 text-white py-4 font-[Montserrat] h-[7rem] flex items-center z-[999] w-[100%] duration-150 lg:hidden block">
+    <div class="px-4 sm:px-8 md:px-16 lg:px-24 flex justify-between items-center w-[100%]">
+    <a href="#"><img src="./img/logo.png" alt="Logo" class="h-[3rem] mr-8"></a>
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn lg:hidden block bg-[#1c1c1e]/50"><span></span></label>
+    <label for="active" class="close lg:hidden block"></label>
+      <div class="wrapper flex p-8 gap-8 flex-col">
+          <div>
+              <a href="#"><img src="./img/logo.png" alt="Logo" class="mb:h-[5rem] h-[4rem] mr-8 mb-8 sm:mb-16"></a>
+          </div>
+          <div class="mb-2">
+              <span class="mobileMenuPoint "><a href="/" class="text-xl">Главная</a></span>
+              <span class="mobileMenuPoint"><a href="/about.html" class="text-lg">О компании</a></span>
+              <span class="mobileMenuPoint active"><a href="/products.html" class="text-lg">Продукция</a></span>
+              <span class="mobileMenuPoint"><a href="#" class="text-lg">Новости</a></span>
+              <span class="mobileMenuPoint "><a href="#" class="text-lg">Дистрибьюторы</a></span>
+              <div class="gap-3 flex-col flex">
+                  <div class="flex flex-row gap-2">
+                      <div class="flex flex-col justify-around">
+                          <a href="tel:8(7182)539804" class="text-lg text-[#53606B]">+7 (7182) 539-804</a>
+                      </div>
+                  </div>
+                  <div class="flex flex-row gap-2">
+                      <div class="flex flex-col justify-around">
+                          <p class="text-lg text-[#53606B]">г. Павлодар, <br> ул. Генерала Дюсенова 3/1</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+  </div>
+</div>
+  </header>
+
+  <section>
+    <div class="p-6 mt-20 px-6 sm:mt-16 md:mt-18 lg:mt-20 xl:mt-24 sm:px-8 md:px-10 lg:px-12 xl:px-14 2xl:px-16 gap-6 flex flex-col">
+        <div class="flex justify-between flex-col md:flex-row gap-6">
+            <div >
+                <span class="text-lg md:text-xl 2xl:text-4xl font-bold">
+                    Lorem ipsum dolor sit amet consectetur <span class="text-[#E31E24]"s>adipisicing elit.</span>
+                </span>
+            </div>
+            <div class="flex flex-col gap-2 w-[100%] md:w-[50%]">
+                <span class="sm:text-sm md:text-md 2xl:text-lg">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, magni modi cumque aut dignissimos porro dolores reprehenderit fugiat quam dolor quis odit officia, distinctio id.
+                </span>
+            </div>
+        </div>
+        <div id="map" class="rounded-md" style="width: 100%; height: 600px;"></div>
+
+        <div class="flex justify-between flex-col gap-6">
+            <div >
+                <span class="text-lg md:text-xl 2xl:text-4xl font-bold">
+                   Партнёрство с  <span class="text-[#E31E24]">РУБИКОМ.</span>
+                </span>
+            </div>
+            <div class="grid  gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+                <div class=" flex flex-col bg-white rounded-md shadow-lg relative">
+                    <div class="absolute right-0 bottom-0 w-[150px] h-[25px] rounded-tl-lg bg-main flex items-center font-bold justify-center text-white">
+                        с 2004 года
+                    </div>
+                    <div class="rounded-t-md overflow-hidden w-full h-full">
+                        <img src="/img/10.jpg" class="w-full h-full object-cover" alt="">
+                    </div>
+                    <div class="flex flex-col gap-2 w-full h-full p-4">
+
+                        <div class="font-bold text-lg">
+                            Замкнутый цикл производства
+                        </div>
+                        <div class="mb-4 ">
+                            Выращивание кормовых культур. Мы производим собственные корма и не зависим от поставщиков, а значит полностью отвечаем за фирменные продукты на прилавках магазинов. 
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" flex flex-col bg-white rounded-md shadow-lg relative">
+                    <div class="absolute right-0 bottom-0 w-[150px] h-[25px] rounded-tl-lg bg-main flex items-center font-bold justify-center text-white">
+                        с 2004 года
+                    </div>
+                    <div class="rounded-t-md overflow-hidden w-full h-full">
+                        <img src="/img/10.jpg" class="w-full h-full object-cover" alt="">
+                    </div>
+                    <div class="flex flex-col gap-2 w-full h-full p-4">
+
+                        <div class="font-bold text-lg">
+                            Замкнутый цикл производства
+                        </div>
+                        <div class="mb-4 ">
+                            Выращивание кормовых культур. Мы производим собственные корма и не зависим от поставщиков, а значит полностью отвечаем за фирменные продукты на прилавках магазинов. 
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" flex flex-col bg-white rounded-md shadow-lg relative">
+                    <div class="absolute right-0 bottom-0 w-[150px] h-[25px] rounded-tl-lg bg-main flex items-center font-bold justify-center text-white">
+                        с 2004 года
+                    </div>
+                    <div class="rounded-t-md overflow-hidden w-full h-full">
+                        <img src="/img/10.jpg" class="w-full h-full object-cover" alt="">
+                    </div>
+                    <div class="flex flex-col gap-2 w-full h-full p-4">
+
+                        <div class="font-bold text-lg">
+                            Замкнутый цикл производства
+                        </div>
+                        <div class="mb-4 ">
+                            Выращивание кормовых культур. Мы производим собственные корма и не зависим от поставщиков, а значит полностью отвечаем за фирменные продукты на прилавках магазинов. 
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" flex flex-col bg-white rounded-md shadow-lg relative">
+                    <div class="absolute right-0 bottom-0 w-[150px] h-[25px] rounded-tl-lg bg-main flex items-center font-bold justify-center text-white">
+                        с 2004 года
+                    </div>
+                    <div class="rounded-t-md overflow-hidden w-full h-full">
+                        <img src="/img/10.jpg" class="w-full h-full object-cover" alt="">
+                    </div>
+                    <div class="flex flex-col gap-2 w-full h-full p-4">
+
+                        <div class="font-bold text-lg">
+                            Замкнутый цикл производства
+                        </div>
+                        <div class="mb-4 ">
+                            Выращивание кормовых культур. Мы производим собственные корма и не зависим от поставщиков, а значит полностью отвечаем за фирменные продукты на прилавках магазинов. 
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" flex flex-col bg-white rounded-md shadow-lg relative">
+                    <div class="absolute right-0 bottom-0 w-[150px] h-[25px] rounded-tl-lg bg-main flex items-center font-bold justify-center text-white">
+                        с 2004 года
+                    </div>
+                    <div class="rounded-t-md overflow-hidden w-full h-full">
+                        <img src="/img/10.jpg" class="w-full h-full object-cover" alt="">
+                    </div>
+                    <div class="flex flex-col gap-2 w-full h-full p-4">
+
+                        <div class="font-bold text-lg">
+                            Замкнутый цикл производства
+                        </div>
+                        <div class="mb-4 ">
+                            Выращивание кормовых культур. Мы производим собственные корма и не зависим от поставщиков, а значит полностью отвечаем за фирменные продукты на прилавках магазинов. 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div class="md:flex">
+                <div class="md:w-1/2 p-6">
+                  <h2 class="text-4xl font-bold text-red-500 mb-2">Хотите связаться с нами?</h2>
+                  <p class="text-gray-600 mb-4">Напишите нам в удобную социальную сеть указанной ниже, отправьте сообщение на почту заполнив форму обратной связи или свяжитесь с нами по номеру телефона!</p>
+                  <div class="flex items-center mb-4 gap-6">
+                    <div class="">
+                        <svg width="26" height="20" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28.8 0H3.2C1.44 0 0.016 1.4625 0.016 3.25L0 22.75C0 24.5375 1.44 26 3.2 26H28.8C30.56 26 32 24.5375 32 22.75V3.25C32 1.4625 30.56 0 28.8 0ZM28.8 6.5L16 14.625L3.2 6.5V3.25L16 11.375L28.8 3.25V6.5Z" fill="#E31E24"/>
+                            </svg>                            
+                    </div>
+                    <span class="text-gray-700">office@rubikom.kz</span>
+                  </div>
+                  <div class="flex items-center mb-4 gap-6">
+                    <div class="">
+                        <svg width="20" height="20" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M26 13C25.9993 9.5524 24.6294 6.2462 22.1916 3.80837C19.7538 1.37055 16.4476 0.000689314 13 0V2.6C15.0567 2.60047 17.0672 3.21053 18.7773 4.3531C20.4875 5.49567 21.8206 7.11949 22.6083 9.0194C23.1311 10.2814 23.4001 11.634 23.4 13H26ZM0 10.4V3.9C0 3.55522 0.136964 3.22456 0.380761 2.98076C0.624558 2.73696 0.955219 2.6 1.3 2.6H7.8C8.14478 2.6 8.47544 2.73696 8.71924 2.98076C8.96304 3.22456 9.1 3.55522 9.1 3.9V9.1C9.1 9.44478 8.96304 9.77544 8.71924 10.0192C8.47544 10.263 8.14478 10.4 7.8 10.4H5.2C5.2 13.1583 6.29571 15.8035 8.24609 17.7539C10.1965 19.7043 12.8417 20.8 15.6 20.8V18.2C15.6 17.8552 15.737 17.5246 15.9808 17.2808C16.2246 17.037 16.5552 16.9 16.9 16.9H22.1C22.4448 16.9 22.7754 17.037 23.0192 17.2808C23.263 17.5246 23.4 17.8552 23.4 18.2V24.7C23.4 25.0448 23.263 25.3754 23.0192 25.6192C22.7754 25.863 22.4448 26 22.1 26H15.6C6.9849 26 0 19.0151 0 10.4Z" fill="#E31E24"/>
+                            <path d="M20.2059 10.0144C20.5983 10.9606 20.8002 11.9749 20.8 12.9992H18.46C18.4602 12.2822 18.3191 11.5721 18.0447 10.9096C17.7704 10.2471 17.3682 9.64508 16.8612 9.13804C16.3541 8.63099 15.7522 8.22882 15.0897 7.95449C14.4271 7.68016 13.7171 7.53905 13 7.53922V5.19922C14.5426 5.1993 16.0506 5.65682 17.3333 6.51391C18.6159 7.37101 19.6156 8.58919 20.2059 10.0144Z" fill="#E31E24"/>
+                            </svg>
+                    </div>
+                    <span class="text-gray-700">+7 7817 00 00 00</span>
+                </div>
+                <div class="flex items-center gap-6">
+                    <div class="">
+                        
+                        <svg width="20" height="20" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.494 0H6C4.88057 2.19168e-05 3.78347 0.313207 2.83273 0.90415C1.88199 1.49509 1.11553 2.34022 0.62 3.344L12.54 10.93L19.494 0ZM0 6.506V20C2.19168e-05 21.1194 0.313207 22.2165 0.90415 23.1673C1.49509 24.118 2.34022 24.8845 3.344 25.38L10.93 13.46L0 6.506ZM6.506 26H20C21.5913 26 23.1174 25.3679 24.2426 24.2426C25.3679 23.1174 26 21.5913 26 20V6C26.0002 4.88078 25.6873 3.78383 25.0967 2.83311C24.5061 1.88239 23.6614 1.11581 22.658 0.62L14.266 13.804L6.506 26Z" fill="#E31E24"/>
+                            </svg>
+                            
+                    </div>
+                    <span class="text-gray-700">ул. Троплечина 28</span>
+                  </div>
+                </div>
+                <div class="md:w-1/2 p-6 bg-red-100">
+                  <div class="mb-4">
+                    <label for="name" class="block text-gray-700">Ваше имя:</label>
+                    <input type="text" id="name" class="w-full p-2 border border-red-300 rounded mt-2">
+                  </div>
+                  <div class="mb-4">
+                    <label for="email" class="block text-gray-700">Ваш e-mail:</label>
+                    <input type="email" id="email" class="w-full p-2 border border-red-300 rounded mt-2">
+                  </div>
+                  <div class="mb-4">
+                    <label for="message" class="block text-gray-700">Ваше сообщение:</label>
+                    <textarea id="message" rows="4" class="w-full p-2 border border-red-300 rounded mt-2"></textarea>
+                  </div>
+                  <button class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600">Отправить</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+        </div>
+    </section>
+
+    <footer class="bg-[#1c1c1e] border-t border-[#E31E24] text-white">
+      <div class=" p-6 px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14 2xl:px-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Логотип и социальные сети -->
+          <div>
+              <a href="#" class="flex items-center mb-4">
+                <img src="./img/logo.png" alt="Logo" class="h-12 mr-3">
+              </a>
+              <div class="flex flex-col gap-4">
+              <div class="flex flex-col gap-2">
+              <span>Мы в социальных сетях:</span>
+              <div class="flex items-center gap-4">
+                <!-- Социальные иконки -->
+                <!-- Путь к иконкам может быть другим -->
+                <a href="#" class="w-8 h-8 flex justify-center items-center social-service_footer">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6 0H14C17.3137 0 20 2.68629 20 6V14C20 17.3137 17.3137 20 14 20H6C2.68629 20 0 17.3137 0 14V6C0 2.68629 2.68629 0 6 0ZM12.7092 3C12.709 3.80689 12.9973 4.58637 13.5204 5.19333C14.5612 6.41444 16 6.34444 16 6.34444V8.74778C14.8194 8.74984 13.6681 8.37433 12.7092 7.67444V12.5667C12.7092 15.0167 10.7577 17 8.35459 17C6.11225 17 4 15.1567 4 12.5667C4 9.90667 6.31122 7.82222 8.95153 8.18V10.6378C7.64286 10.2256 6.37245 11.2289 6.37245 12.5667C6.37245 13.6867 7.27551 14.5889 8.36224 14.5889C8.87611 14.5888 9.36989 14.3861 9.73962 14.0234C10.1093 13.6607 10.3261 13.1664 10.3444 12.6444V3H12.7092Z"/>
+                    </svg>                    
+                </a>
+                <a href="#" class="w-8 h-8 flex justify-center items-center social-service_footer">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.0286 0.0012304C11.7583 -0.00156983 12.488 0.00576429 13.2176 0.0232305L13.4116 0.0302304C13.6356 0.0382304 13.8566 0.0482304 14.1236 0.0602304C15.1876 0.11023 15.9136 0.278231 16.5506 0.525231C17.2106 0.779231 17.7666 1.12323 18.3226 1.67923C18.831 2.17884 19.2244 2.78318 19.4756 3.45023C19.7226 4.08723 19.8906 4.81423 19.9406 5.87823C19.9526 6.14423 19.9626 6.36623 19.9706 6.59023L19.9766 6.78423C19.9943 7.51342 20.002 8.24283 19.9996 8.97223L20.0006 9.71823V11.0282C20.003 11.758 19.9954 12.4877 19.9776 13.2172L19.9716 13.4112C19.9636 13.6352 19.9536 13.8562 19.9416 14.1232C19.8916 15.1872 19.7216 15.9132 19.4756 16.5502C19.2252 17.218 18.8317 17.8228 18.3226 18.3222C17.8225 18.8306 17.2179 19.224 16.5506 19.4752C15.9136 19.7222 15.1876 19.8902 14.1236 19.9402C13.8566 19.9522 13.6356 19.9622 13.4116 19.9702L13.2176 19.9762C12.4881 19.994 11.7583 20.0017 11.0286 19.9992L10.2826 20.0002H8.97358C8.24384 20.0027 7.5141 19.995 6.78458 19.9772L6.59058 19.9712C6.35319 19.9626 6.11585 19.9526 5.87858 19.9412C4.81458 19.8912 4.08858 19.7212 3.45058 19.4752C2.78326 19.2246 2.17881 18.8311 1.67958 18.3222C1.17062 17.8225 0.776801 17.2178 0.525577 16.5502C0.278577 15.9132 0.110577 15.1872 0.0605769 14.1232C0.0494399 13.8859 0.0394398 13.6486 0.030577 13.4112L0.0255771 13.2172C0.00714068 12.4877 -0.00119355 11.758 0.000577001 11.0282V8.97223C-0.00221397 8.24283 0.00512015 7.51343 0.0225771 6.78423L0.029577 6.59023C0.037577 6.36623 0.047577 6.14423 0.059577 5.87823C0.109577 4.81323 0.277577 4.08823 0.524577 3.45023C0.77595 2.78285 1.17054 2.17868 1.68058 1.68023C2.17947 1.17098 2.78354 0.776803 3.45058 0.525231C4.08858 0.278231 4.81358 0.11023 5.87858 0.0602304L6.59058 0.0302304L6.78458 0.0252306C7.51376 0.00680338 8.24316 -0.00153085 8.97258 0.000230468L11.0286 0.0012304ZM10.0006 5.00123C9.33808 4.99186 8.68033 5.11425 8.06555 5.3613C7.45077 5.60834 6.89122 5.97511 6.41942 6.44029C5.94762 6.90546 5.57298 7.45977 5.31726 8.07099C5.06155 8.68222 4.92987 9.33817 4.92987 10.0007C4.92987 10.6633 5.06155 11.3192 5.31726 11.9305C5.57298 12.5417 5.94762 13.096 6.41942 13.5612C6.89122 14.0264 7.45077 14.3931 8.06555 14.6402C8.68033 14.8872 9.33808 15.0096 10.0006 15.0002C11.3267 15.0002 12.5984 14.4734 13.5361 13.5358C14.4738 12.5981 15.0006 11.3263 15.0006 10.0002C15.0006 8.67415 14.4738 7.40238 13.5361 6.4647C12.5984 5.52701 11.3267 5.00123 10.0006 5.00123ZM10.0006 7.00123C10.3991 6.99389 10.7951 7.06603 11.1654 7.21344C11.5357 7.36085 11.8729 7.58057 12.1574 7.85978C12.4418 8.13898 12.6678 8.47206 12.822 8.83957C12.9763 9.20708 13.0558 9.60165 13.0558 10.0002C13.0559 10.3988 12.9766 10.7934 12.8224 11.1609C12.6683 11.5285 12.4424 11.8617 12.1581 12.141C11.8737 12.4203 11.5366 12.6401 11.1663 12.7876C10.796 12.9352 10.4001 13.0074 10.0016 13.0002C9.20593 13.0002 8.44287 12.6842 7.88026 12.1216C7.31765 11.5589 7.00158 10.7959 7.00158 10.0002C7.00158 9.20458 7.31765 8.44152 7.88026 7.87891C8.44287 7.3163 9.20593 7.00023 10.0016 7.00023L10.0006 7.00123ZM15.2506 3.50123C14.928 3.51414 14.6229 3.65138 14.3992 3.8842C14.1755 4.11702 14.0506 4.42736 14.0506 4.75023C14.0506 5.0731 14.1755 5.38344 14.3992 5.61626C14.6229 5.84908 14.928 5.98632 15.2506 5.99923C15.5821 5.99923 15.9 5.86753 16.1345 5.63311C16.3689 5.39869 16.5006 5.08075 16.5006 4.74923C16.5006 4.41771 16.3689 4.09977 16.1345 3.86535C15.9 3.63093 15.5821 3.49923 15.2506 3.49923V3.50123Z"/>
+                    </svg>                    
+                </a>
+                <a href="#" class="w-8 h-8 flex justify-center items-center social-service_footer">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6 0C2.68629 0 0 2.68629 0 6V14C0 17.3137 2.68629 20 6 20H8.07426V13.2547H6L6.34282 9.90316H8.07426V8.21053C8.07426 7.09383 8.53031 6.02286 9.34207 5.23323C10.1538 4.44361 11.2548 4 12.4028 4H15V7.36842H12.4028C12.1732 7.36842 11.953 7.45714 11.7907 7.61507C11.6283 7.77299 11.5371 7.98719 11.5371 8.21053V9.90316H15L14.6572 13.2547H11.5371V20H14C17.3137 20 20 17.3137 20 14V6C20 2.68629 17.3137 0 14 0H6Z"/>
+                    </svg>       
+                </a>
+                <!-- Добавьте дополнительные соц. иконки по аналогии -->
+              </div>
+              
+            </div>
+            <div class="flex flex-col gap-2">
+              <span>Наши награды:</span>
+              <div class="flex gap-2">
+                  <img src="/img/footer_image_2.webp" alt="">
+                  <img src="/img/footer_image_3.webp" alt="">
+                </div>
+            </div>
+             </div>
+            </div>
+          
+          <!-- Меню футера -->
+          <div class="flex flex-col gap-2">
+            <span class="font-bold text-2xl mb-4">Меню</span>
+            <div class="footerNavMenu"><a class="footerNavMenu-point" href="/index.html">Главная</a></div>
+            <div class="footerNavMenu"><a class="footerNavMenu-point flex" href="/about.html">О компании</a></div>
+            <div class="footerNavMenu"><a class="footerNavMenu-point" href="/products.html">Продукция</a></div>
+            <div class="footerNavMenu"><a class="footerNavMenu-point" href="/news.html">Новости</a></div>
+            <div class="footerNavMenu"><a class="footerNavMenu-point" href="/distribution.html">Дистрибьюторы</a></div>
+            <!-- Добавьте дополнительные ссылки меню -->
+          </div>
+          
+          <!-- Форма обратной связи -->
+          <div class="flex flex-col gap-2">
+            <span class="font-bold text-2xl mb-4">Обратная связь</span>
+            <form>
+              <input type="text" placeholder="Ваше имя" class="w-full p-2 mb-3 bg-transparent border border-gray-600 rounded">
+              <input type="email" placeholder="Ваш email" class="w-full p-2 mb-3 bg-transparent border border-gray-600 rounded">
+              <textarea placeholder="Ваше сообщение" class="w-full p-2 mb-3 bg-transparent border border-gray-600 rounded resize-none"></textarea>
+              <button type="submit" class="w-full p-2 bg-[#E31E24] rounded hover:bg-red-700">Отправить</button>
+            </form>
+          </div>
+          
+          <!-- Контактная информация -->
+          <div class="flex flex-col gap-2">
+            <span class="font-bold text-2xl mb-4">Контакты</span>
+            <div>Телефон: +7 (123) 456-78-90</div>
+            <div>Email: info@example.com</div>
+            <div>Адрес: г. ВашГород, ул. Улица, д. 1</div>
+          </div>
+        </div>
+        
+        <!-- Копирайт и дополнительные ссылки -->
+        <div class="flex flex-col md:flex-row justify-between items-center border-t border-[#242833] mt-8 pt-4">
+          <div class="text-sm mb-4 md:mb-0">
+            © 1994 - <script>document.write(new Date().getFullYear())</script> Все права защищены ТОО предприятие «Рубиком»
+          </div>
+          <!-- Можно добавить дополнительные ссылки, если нужно -->
+        </div>
+      </div>
+    </footer>
+  </body>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js" integrity="sha256-huW7yWl7tNfP7lGk46XE+Sp0nCotjzYodhVKlwaNeco=" crossorigin="anonymous"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=725afc3b-2a66-4319-9d69-92092f4f7800&lang=ru_RU" type="text/javascript"></script>
+  <script src="/js/distr-maps.js"></script>
+  <script src="/js/app.js"></script>
+  <script>
+  
+  
+   
+      SmoothScroll({
+          // Время скролла 400 = 0.4 секунды
+          animationTime    : 400,
+          // Размер шага в пикселях 
+          stepSize         : 75,
+      
+          // Дополнительные настройки:
+          
+          // Ускорение 
+          accelerationDelta : 30,  
+          // Максимальное ускорение
+          accelerationMax   : 2,   
+      
+          // Поддержка клавиатуры
+          keyboardSupport   : true,  
+          // Шаг скролла стрелками на клавиатуре в пикселях
+          arrowScroll       : 50,
+      
+          // Pulse (less tweakable)
+          // ratio of "tail" to "acceleration"
+          pulseAlgorithm   : true,
+          pulseScale       : 4,
+          pulseNormalize   : 1,
+      
+          // Поддержка тачпада
+          touchpadSupport   : true,
+      })
+  </script>
+  </html>
